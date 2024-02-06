@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class TodoItem(models.Model):
+    detail = models.CharField(max_length=128)
+    completed = models.BooleanField(default=False)
