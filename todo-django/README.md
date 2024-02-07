@@ -18,3 +18,7 @@ Features:
 - As a user, I can mark a To-do Item as completed so that I know which task(s) have yet to be completed.
 - As a user, I can delete a To-do Item so that I remove any task(s) that I don't need.
 - As a user, I want to see a favicon for the app so that I know which tab to click to, to acccess the app.
+
+Design Reference:
+
+- The "To-Do List App UI Design" mockup from Mailin Hülsmann was used, link **[here](https://www.behance.net/gallery/124541301/To-Do-List-App-UI-Design)**.
