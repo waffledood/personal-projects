@@ -7,3 +7,6 @@ class TodoItem(models.Model):
 
     def __str__(self):
         return f"[{'X' if self.completed else ' '}] Task ({self.id}): {self.detail}"
+
+    def serialize(self):
+        return {"id": self.id, "detail": self.detail, "completed": self.completed}
