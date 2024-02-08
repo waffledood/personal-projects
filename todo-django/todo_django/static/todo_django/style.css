@@ -21,7 +21,7 @@ main {
   background-color: var(--pri-purple);
 }
 
-#listOfTodoItems {
+.todoItem {
   background-color: var(--pri-purple-accent);
 }
 
