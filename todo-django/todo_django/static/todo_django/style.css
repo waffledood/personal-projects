@@ -48,6 +48,14 @@ main {
   background-color: var(--pri-purple-accent);
 }
 
+.bottom-5 {
+  bottom: 5%;
+}
+
+.end-5 {
+  right: 5%;
+}
+
 /* Checkbox Styling */
 [type="checkbox"] {
   width: 1.5rem;
