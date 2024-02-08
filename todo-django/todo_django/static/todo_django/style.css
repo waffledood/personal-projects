@@ -21,6 +21,10 @@ main {
   background-color: var(--pri-purple);
 }
 
+#listOfTodoItems {
+  background-color: var(--pri-purple-accent);
+}
+
 /* Checkbox Styling */
 [type="checkbox"] {
   width: 1.5rem;

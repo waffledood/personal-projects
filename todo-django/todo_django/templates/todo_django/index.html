@@ -20,7 +20,7 @@
         <h1>Hello there!</h1>
         <h2>Here are your To-Do Items for today.</h2>
       </header>
-      <div class="flex-grow-1 p-3 mt-3">
+      <div id="listOfTodoItems" class="flex-grow-1 p-3 mt-3 rounded-3">
         {% for todoitem in allTodoItemObjects %}
           <div id="todoitem-{{ todoitem.id }}" class="d-flex flex-row align-items-center p-3">
             <input type="checkbox" name="todoitem-checkbox-{{ todoitem.id }}" id="todoitem-checkbox-{{ todoitem.id }}" />
