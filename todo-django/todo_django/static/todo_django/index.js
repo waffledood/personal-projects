@@ -1,26 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
-  bootstrapFormValidationSetup();
+  todoItemFormSetup();
 });
 
-function bootstrapFormValidationSetup() {
+function todoItemFormSetup() {
   "use strict";
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll(".needs-validation");
+  const todoItemForm = document.querySelector("#addTodoItemForm");
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach((form) => {
-    form.addEventListener(
-      "submit",
-      (event) => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
+  todoItemForm.addEventListener(
+    "submit",
+    (event) => {
+      event.preventDefault();
+      event.stopPropagation();
 
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
+      todoItemForm.classList.add("was-validated");
+
+      const todoItemDetailInput = document.querySelector("#todoItemDetail");
+      const todoItemDetailString = todoItemDetailInput.value.trim();
+
+      const payload = {
+        todoItemDetail: todoItemDetailString,
+      };
+
+      // only submit the POST request if the form is valid
+      if (todoItemForm.checkValidity()) {
+        fetch("http://localhost:8000/todo/addTodoItem", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((jsonResponse) => {
+            // TODO - add newly created To-Do Item to current list
+
+            // Close the Add To-Do Item modal
+            const addTodoItemModal =
+              document.querySelector("#addTodoItemModal");
+            const addTodoItemBootstrapModal =
+              bootstrap.Modal.getInstance(addTodoItemModal);
+            addTodoItemBootstrapModal.hide();
+
+            // Clear fields of form
+            todoItemDetailInput.value = "";
+
+            // Remove "was-validated" class
+            todoItemForm.classList.remove("was-validated");
+          });
+      }
+    },
+    false
+  );
 }
