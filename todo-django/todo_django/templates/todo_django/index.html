@@ -30,11 +30,44 @@
           {% endfor %}
         </div>
       </div>
-      <button id="addTodoItemButton" type="button" class="btn btn-outline-light position-absolute bottom-5 end-5">
+
+      <button type="button" class="btn btn-outline-light position-absolute bottom-5 end-5" data-bs-toggle="modal" data-bs-target="#addTodoItemModal">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
         </svg>
       </button>
+
+      <div class="modal fade" id="addTodoItemModal" tabindex="-1" aria-labelledby="addTodoItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addTodoItemModalLabel">Add To-Do Item</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3 needs-validation" novalidate>
+                <div class="col">
+                  <label for="todoItemDetail" class="form-label">To-Do Item Detail</label>
+                  <input type="text" class="form-control" id="todoItemDetail" placeholder="Enter your To-Do Item here..." required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please enter the To-Do Item Detail.
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button id="addTodoItemButton" type="submit" class="btn btn-primary">Add!</button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
   </body>
 
@@ -44,3 +77,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </html>
+
+<!-- Button trigger modal -->
+
