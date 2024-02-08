@@ -15,12 +15,12 @@
   </head>
 
   <body class="d-flex flex-column justify-content-center align-items-center vw-100 vh-100">
-    <main class="p-3 rounded-3" style="width: 600px; height: 600px;">
+    <main class="d-flex flex-column p-3 rounded-3" style="width: 600px; height: 600px;">
       <header class="p-3">
         <h1>Hello there!</h1>
         <h2>Here are your To-Do Items for today.</h2>
       </header>
-      <div class="mt-3">
+      <div class="flex-grow-1 p-3 mt-3">
         {% for todoitem in allTodoItemObjects %}
           <div id="todoitem-{{ todoitem.id }}" class="p-3">{{ todoitem.detail }}</div>
         {% endfor %}
