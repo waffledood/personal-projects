@@ -21,6 +21,11 @@ main {
   background-color: var(--pri-purple);
 }
 
+#listOfTodoItems {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .todoItem {
   background-color: var(--pri-purple-accent);
 }
