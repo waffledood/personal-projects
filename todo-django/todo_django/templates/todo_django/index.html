@@ -21,12 +21,14 @@
         <h2>Here are your To-Do Items for today.</h2>
       </header>
       <div id="listOfTodoItems" class="flex-grow-1 p-3 mt-3">
-        {% for todoitem in allTodoItemObjects %}
-          <div id="todoitem-{{ todoitem.id }}" class="d-flex flex-row align-items-center mb-3 p-3 rounded-3 todoItem">
-            <input type="checkbox" name="todoitem-checkbox-{{ todoitem.id }}" id="todoitem-checkbox-{{ todoitem.id }}" />
-            <div class="ms-3">{{ todoitem.detail }}</div>
-          </div>
-        {% endfor %}
+        <div id="listWrapper">
+          {% for todoitem in allTodoItemObjects %}
+            <div id="todoitem-{{ todoitem.id }}" class="d-flex flex-row align-items-center mb-3 p-3 rounded-3 todoItem">
+              <input type="checkbox" name="todoitem-checkbox-{{ todoitem.id }}" id="todoitem-checkbox-{{ todoitem.id }}" />
+              <div class="ms-3">{{ todoitem.detail }}</div>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </main>
   </body>
