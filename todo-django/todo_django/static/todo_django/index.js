@@ -15,15 +15,15 @@ function todoItemFormSetup() {
 
       todoItemForm.classList.add("was-validated");
 
-      const todoItemDetailInput = document.querySelector("#todoItemDetail");
-      const todoItemDetailString = todoItemDetailInput.value.trim();
-
-      const payload = {
-        detail: todoItemDetailString,
-      };
-
       // only submit the POST request if the form is valid
       if (todoItemForm.checkValidity()) {
+        const todoItemDetailInput = document.querySelector("#todoItemDetail");
+        const todoItemDetailString = todoItemDetailInput.value.trim();
+
+        const payload = {
+          detail: todoItemDetailString,
+        };
+
         fetch("http://localhost:8000/todo/addTodoItem", {
           method: "POST",
           headers: {
