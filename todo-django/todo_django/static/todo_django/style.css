@@ -66,6 +66,8 @@ main {
 
   color: var(--pri-purple);
 
+  transition: color 0.2s ease-in;
+
   display: flex;
   flex-direction: column;
   align-items: center;
