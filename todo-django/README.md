@@ -17,7 +17,7 @@ Features:
 - As a user, I can update a To-do Item so that I keep my task(s) in the app updated.
 - As a user, I can mark a To-do Item as completed so that I know which task(s) have yet to be completed.
 - As a user, I can delete a To-do Item so that I remove any task(s) that I don't need.
-- As a user, I want to see a favicon for the app so that I know which tab to click to, to acccess the app.
+- As a user, I want to see a favicon for the app so that I know which tab to click to, to access the app.
 
 Design Reference:
 
