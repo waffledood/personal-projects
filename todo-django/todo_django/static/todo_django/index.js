@@ -19,7 +19,7 @@ function todoItemFormSetup() {
       const todoItemDetailString = todoItemDetailInput.value.trim();
 
       const payload = {
-        todoItemDetail: todoItemDetailString,
+        detail: todoItemDetailString,
       };
 
       // only submit the POST request if the form is valid
