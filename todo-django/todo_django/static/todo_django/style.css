@@ -7,9 +7,13 @@
   /* Colors */
   --pri-purple: #878af5;
   --pri-purple-accent: #666af6;
+  --sec-red: #eb3b33;
+  --sec-dark-red: #ee1c12;
   --sec-dark-blue: #31446c;
   --sec-yellow: #f5a921;
   --sec-orange: #f4863c;
+  --sec-white: #fff;
+  --sec-gray: #ccc;
 }
 
 h1,
@@ -54,6 +58,29 @@ main {
 
 .end-5 {
   right: 5%;
+}
+
+.deleteTodoItemButton {
+  border: none;
+  text-decoration: none;
+  border-radius: 8px;
+
+  height: 24px;
+  width: 24px;
+
+  background-color: var(--sec-white);
+  color: var(--sec-red);
+
+  transition: background-color 0.2s ease-in;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteTodoItemButton:hover {
+  background-color: var(--sec-gray);
 }
 
 #addTodoItemModalButton {
