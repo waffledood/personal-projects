@@ -1,5 +1,15 @@
+function todoItemTemplate(todoItem) {
+  return `
+    <div id="todoitem-${todoItem.id}" class="d-flex flex-row align-items-center p-3 rounded-3 todoItem">
+      <input type="checkbox" name="todoitem-checkbox-${todoItem.id}" id="todoitem-checkbox-${todoItem.id}" />
+      <div class="ms-3">${todoItem.detail}</div>
+    </div>
+  `;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   todoItemFormSetup();
+  markTodoItemAsCompleted();
 });
 
 function todoItemFormSetup() {
@@ -15,15 +25,15 @@ function todoItemFormSetup() {
 
       todoItemForm.classList.add("was-validated");
 
-      const todoItemDetailInput = document.querySelector("#todoItemDetail");
-      const todoItemDetailString = todoItemDetailInput.value.trim();
-
-      const payload = {
-        detail: todoItemDetailString,
-      };
-
       // only submit the POST request if the form is valid
       if (todoItemForm.checkValidity()) {
+        const todoItemDetailInput = document.querySelector("#todoItemDetail");
+        const todoItemDetailString = todoItemDetailInput.value.trim();
+
+        const payload = {
+          detail: todoItemDetailString,
+        };
+
         fetch("http://localhost:8000/todo/addTodoItem", {
           method: "POST",
           headers: {
@@ -36,7 +46,21 @@ function todoItemFormSetup() {
             return response.json();
           })
           .then((jsonResponse) => {
-            // TODO - add newly created To-Do Item to current list
+            const newTodoItem = jsonResponse["todoItem"];
+
+            console.log("newTodoItem:", newTodoItem);
+
+            const listWrapper = document.querySelector("#listWrapper");
+
+            const newTodoItemHTML = todoItemTemplate(newTodoItem);
+
+            listWrapper.innerHTML += newTodoItemHTML;
+
+            // Scroll new To-Do Item into view
+            const newTodoItemAdded = document.getElementById(
+              `todoitem-${newTodoItem.id}`
+            );
+            newTodoItemAdded.scrollIntoView({ behavior: "smooth" });
 
             // Close the Add To-Do Item modal
             const addTodoItemModal =
@@ -55,4 +79,43 @@ function todoItemFormSetup() {
     },
     false
   );
+}
+
+function markTodoItemAsCompleted() {
+  const allInputs = document.getElementsByTagName("input");
+
+  for (var i = 0, max = allInputs.length; i < max; i++) {
+    if (allInputs[i].type === "checkbox") {
+      const inputCheckbox = allInputs[i];
+
+      inputCheckbox.addEventListener(
+        "click",
+        (event) => {
+          const todoitemId = inputCheckbox.dataset.todoitemId;
+
+          const payload = {
+            completed: inputCheckbox.checked == true,
+          };
+
+          const postUrl = `http://localhost:8000/todo/updateTodoItemCompleteStatus/${todoitemId}`;
+
+          fetch(postUrl, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((jsonResponse) => {
+              console.log("jsonResponse:", jsonResponse);
+            });
+        },
+        false
+      );
+    }
+  }
 }

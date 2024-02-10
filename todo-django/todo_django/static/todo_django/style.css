@@ -56,6 +56,28 @@ main {
   right: 5%;
 }
 
+#addTodoItemModalButton {
+  border: none;
+  text-decoration: none;
+  border-radius: 8px;
+
+  height: 60px;
+  width: 60px;
+
+  color: var(--pri-purple);
+
+  transition: color 0.2s ease-in;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#addTodoItemModalButton:hover {
+  color: var(--pri-purple-accent);
+}
+
 /* Checkbox Styling */
 [type="checkbox"] {
   width: 1.5rem;

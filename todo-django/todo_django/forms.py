@@ -7,3 +7,9 @@ class TodoItemForm(ModelForm):
     class Meta:
         model = TodoItem
         fields = ["detail", "completed"]
+
+
+class TodoItemCompletedForm(ModelForm):
+    class Meta:
+        model = TodoItem
+        fields = ["completed"]
