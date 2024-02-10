@@ -10,6 +10,7 @@ function todoItemTemplate(todoItem) {
 document.addEventListener("DOMContentLoaded", function () {
   todoItemFormSetup();
   markTodoItemAsCompleted();
+  deleteTodoItem();
 });
 
 function todoItemFormSetup() {
@@ -118,4 +119,43 @@ function markTodoItemAsCompleted() {
       );
     }
   }
+}
+
+function deleteTodoItem() {
+  const allDeleteButtons = document.getElementsByClassName(
+    "deleteTodoItemButton"
+  );
+
+  Array.from(allDeleteButtons).forEach((deleteButton) => {
+    deleteButton.addEventListener(
+      "click",
+      (event) => {
+        const todoItemId = deleteButton.dataset.todoitemId;
+
+        const payload = {
+          todoItemToDeleteId: todoItemId,
+        };
+
+        fetch("http://localhost:8000/todo/deleteTodoItem", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((jsonResponse) => {
+            const todoItemToDeleteHTML = document.getElementById(
+              `todoitem-${todoItemId}`
+            );
+
+            todoItemToDeleteHTML.remove();
+          });
+      },
+      false
+    );
+  });
 }
