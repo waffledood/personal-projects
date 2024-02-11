@@ -10,4 +10,5 @@ urlpatterns = [
         views.updateTodoItemCompleteStatus,
         name="updateTodoItemCompleteStatus",
     ),
+    path("deleteTodoItem", views.deleteTodoItem, name="deleteTodoItem"),
 ]

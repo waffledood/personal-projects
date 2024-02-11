@@ -80,3 +80,33 @@ def updateTodoItemCompleteStatus(request, todoItemId):
         return JsonResponse(
             data={"message": "Error during form validation."}, status=400
         )
+
+
+@csrf_exempt
+def deleteTodoItem(request):
+    if request.method != "POST":
+        return JsonResponse(
+            data={"message": "Only POST requests are allowed."}, status=400
+        )
+
+    try:
+        jsonPostData = json.loads(request.body)
+
+        todoItemToDeleteId = jsonPostData["todoItemToDeleteId"]
+        todoItemToDelete = TodoItem.objects.get(pk=todoItemToDeleteId)
+
+        deleteMessageTuple = todoItemToDelete.delete()
+
+        return JsonResponse(
+            data={
+                "message": "To-Do Item successfully deleted.",
+                "todoItem": todoItemToDelete.serialize(),
+            },
+            status=200,
+        )
+    except TodoItem.DoesNotExist:
+        print("TodoItem with that id does not exist.")
+
+        return JsonResponse(
+            data={"message": "TodoItem with that id does not exist."}, status=400
+        )
