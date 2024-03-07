@@ -15,6 +15,16 @@ function todoItemTemplate(todoItem) {
   `;
 }
 
+function generateHTMLElement(htmlString, elementId) {
+  // Create a new DOMParser
+  const parser = new DOMParser();
+
+  // Parse the HTML string
+  const parsedDocument = parser.parseFromString(htmlString, "text/html");
+
+  return parsedDocument.getElementById(elementId);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   todoItemFormSetup();
   markTodoItemAsCompleted();
