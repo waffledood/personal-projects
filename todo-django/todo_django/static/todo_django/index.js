@@ -69,17 +69,19 @@ function todoItemFormSetup() {
 
             console.log("newTodoItem:", newTodoItem);
 
+            const todoItemId = `todoitem-${newTodoItem.id}`;
+
             const listWrapper = document.querySelector("#listWrapper");
 
-            const newTodoItemHTML = todoItemTemplate(newTodoItem);
+            const newTodoItemHTML = generateHTMLElement(
+              todoItemTemplate(newTodoItem),
+              todoItemId
+            );
 
-            listWrapper.innerHTML += newTodoItemHTML;
+            listWrapper.appendChild(newTodoItemHTML);
 
             // Scroll new To-Do Item into view
-            const newTodoItemAdded = document.getElementById(
-              `todoitem-${newTodoItem.id}`
-            );
-            newTodoItemAdded.scrollIntoView({ behavior: "smooth" });
+            newTodoItemHTML.scrollIntoView({ behavior: "smooth" });
 
             // Close the Add To-Do Item modal
             const addTodoItemModal =
