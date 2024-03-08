@@ -2,7 +2,7 @@ function todoItemTemplate(todoItem) {
   return `
     <div id="todoitem-${todoItem.id}" class="d-flex flex-row align-items-center justify-content-between mb-3 p-3 rounded-3 todoItem">
       <div class="d-flex flex-row align-items-center">
-        <input type="checkbox" name="todoitem-checkbox-${todoItem.id}" id="todoitem-checkbox-${todoItem.id}" />
+        <input type="checkbox" name="todoitem-checkbox-${todoItem.id}" id="todoitem-checkbox-${todoItem.id}" data-todoitem-id="${todoItem.id}"/>
         <div class="ms-3">${todoItem.detail}</div>
       </div>
       <button id="todoitem-delete-${todoItem.id}" class="deleteTodoItemButton" type="button" data-todoitem-id="${todoItem.id}" >
