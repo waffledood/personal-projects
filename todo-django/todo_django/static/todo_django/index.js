@@ -15,6 +15,31 @@ function todoItemTemplate(todoItem) {
   `;
 }
 
+function handleInputCheckboxClickEvent(event, inputCheckbox) {
+  const todoitemId = inputCheckbox.dataset.todoitemId;
+
+  const payload = {
+    completed: inputCheckbox.checked == true,
+  };
+
+  const postUrl = `http://localhost:8000/todo/updateTodoItemCompleteStatus/${todoitemId}`;
+
+  fetch(postUrl, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((jsonResponse) => {
+      console.log("jsonResponse:", jsonResponse);
+    });
+}
+
 function generateHTMLElement(htmlString, elementId) {
   // Create a new DOMParser
   const parser = new DOMParser();
@@ -100,31 +125,6 @@ function todoItemFormSetup() {
     },
     false
   );
-}
-
-function handleInputCheckboxClickEvent(event, inputCheckbox) {
-  const todoitemId = inputCheckbox.dataset.todoitemId;
-
-  const payload = {
-    completed: inputCheckbox.checked == true,
-  };
-
-  const postUrl = `http://localhost:8000/todo/updateTodoItemCompleteStatus/${todoitemId}`;
-
-  fetch(postUrl, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((jsonResponse) => {
-      console.log("jsonResponse:", jsonResponse);
-    });
 }
 
 function markTodoItemAsCompleted() {
