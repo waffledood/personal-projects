@@ -47,7 +47,16 @@ function generateHTMLElement(htmlString, elementId) {
   // Parse the HTML string
   const parsedDocument = parser.parseFromString(htmlString, "text/html");
 
-  return parsedDocument.getElementById(elementId);
+  // add event listener to checkbox
+  const todoItemCheckboxId = `todoitem-checkbox-${elementId}`;
+  const todoItemCheckbox = parsedDocument.getElementById(todoItemCheckboxId);
+  todoItemCheckbox.addEventListener("click", (event) => {
+    handleInputCheckboxClickEvent(event, todoItemCheckbox);
+  });
+
+  const todoItemId = `todoitem-${elementId}`;
+
+  return parsedDocument.getElementById(todoItemId);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -94,13 +103,11 @@ function todoItemFormSetup() {
 
             console.log("newTodoItem:", newTodoItem);
 
-            const todoItemId = `todoitem-${newTodoItem.id}`;
-
             const listWrapper = document.querySelector("#listWrapper");
 
             const newTodoItemHTML = generateHTMLElement(
               todoItemTemplate(newTodoItem),
-              todoItemId
+              newTodoItem.id
             );
 
             listWrapper.appendChild(newTodoItemHTML);
