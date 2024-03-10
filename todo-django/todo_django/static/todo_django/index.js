@@ -40,7 +40,7 @@ function handleInputCheckboxClickEvent(event, inputCheckbox) {
     });
 }
 
-function generateHTMLElement(htmlString, elementId) {
+function createTodoItemFromHTML(htmlString, elementId) {
   // Create a new DOMParser
   const parser = new DOMParser();
 
@@ -105,7 +105,7 @@ function todoItemFormSetup() {
 
             const listWrapper = document.querySelector("#listWrapper");
 
-            const newTodoItemHTML = generateHTMLElement(
+            const newTodoItemHTML = createTodoItemFromHTML(
               todoItemTemplate(newTodoItem),
               newTodoItem.id
             );
