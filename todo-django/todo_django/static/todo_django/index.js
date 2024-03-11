@@ -33,10 +33,16 @@ function handleInputCheckboxClickEvent(event, inputCheckbox) {
     body: JSON.stringify(payload),
   })
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Server returned ${response.status}`);
+      }
       return response.json();
     })
     .then((jsonResponse) => {
       console.log("jsonResponse:", jsonResponse);
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
     });
 }
 
@@ -96,6 +102,9 @@ function todoItemFormSetup() {
           body: JSON.stringify(payload),
         })
           .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Server returned ${response.status}`);
+            }
             return response.json();
           })
           .then((jsonResponse) => {
@@ -127,6 +136,12 @@ function todoItemFormSetup() {
 
             // Remove "was-validated" class
             todoItemForm.classList.remove("was-validated");
+          })
+          .catch((error) => {
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            );
           });
       }
     },
@@ -176,6 +191,9 @@ function deleteTodoItem() {
           body: JSON.stringify(payload),
         })
           .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Server returned ${response.status}`);
+            }
             return response.json();
           })
           .then((jsonResponse) => {
@@ -184,6 +202,12 @@ function deleteTodoItem() {
             );
 
             todoItemToDeleteHTML.remove();
+          })
+          .catch((error) => {
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            );
           });
       },
       false
