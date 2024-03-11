@@ -23,7 +23,7 @@
       <div id="listOfTodoItems" class="flex-grow-1 p-3 mt-3">
         <div id="listWrapper" class="rounded-3">
           {% for todoitem in allTodoItemObjects %}
-            <div id="todoitem-{{ todoitem.id }}" class="d-flex flex-row align-items-center justify-content-between mb-3 p-3 rounded-3 todoItem">
+            <div id="todoitem-{{ todoitem.id }}" class="d-flex flex-row align-items-center justify-content-between p-3 rounded-3 todoItem">
               <div class="d-flex flex-row align-items-center">
                 <input type="checkbox" name="todoitem-checkbox-{{ todoitem.id }}" id="todoitem-checkbox-{{ todoitem.id }}" data-todoitem-id="{{ todoitem.id }}" {{ todoitem.completed|yesno:"checked," }}/>
                 <div class="ms-3">{{ todoitem.detail }}</div>

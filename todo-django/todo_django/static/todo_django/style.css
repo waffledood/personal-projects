@@ -48,6 +48,10 @@ main {
   height: 0;
 }
 
+#listWrapper .todoItem:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 .todoItem {
   background-color: var(--pri-purple-accent);
 }
