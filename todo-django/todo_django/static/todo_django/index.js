@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+  initializeBootstrapToasts();
   todoItemFormSetup();
   markTodoItemAsCompleted();
   deleteTodoItem();
 });
+
+function initializeBootstrapToasts() {
+  const toastElList = document.querySelectorAll(".toast");
+  const toastList = [...toastElList].map(
+    (toastEl) => new bootstrap.Toast(toastEl, option)
+  );
+}
 
 function todoItemTemplate(todoItem) {
   return `
