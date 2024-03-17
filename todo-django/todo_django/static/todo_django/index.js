@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+  todoItemFormSetup();
+  markTodoItemAsCompleted();
+  deleteTodoItem();
+});
+
 function todoItemTemplate(todoItem) {
   return `
     <div id="todoitem-${todoItem.id}" class="d-flex flex-row align-items-center justify-content-between p-3 rounded-3 todoItem">
@@ -64,12 +70,6 @@ function createTodoItemFromHTML(htmlString, elementId) {
 
   return parsedDocument.getElementById(todoItemId);
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  todoItemFormSetup();
-  markTodoItemAsCompleted();
-  deleteTodoItem();
-});
 
 function todoItemFormSetup() {
   "use strict";
