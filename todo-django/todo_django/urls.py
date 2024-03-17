@@ -4,11 +4,11 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("addTodoItem", views.addTodoItem, name="addTodoItem"),
+    path("addTodoItem/", views.addTodoItem, name="addTodoItem"),
     path(
-        "updateTodoItemCompleteStatus/<int:todoItemId>",
+        "updateTodoItemCompleteStatus/<int:todoItemId>/",
         views.updateTodoItemCompleteStatus,
         name="updateTodoItemCompleteStatus",
     ),
-    path("deleteTodoItem", views.deleteTodoItem, name="deleteTodoItem"),
+    path("deleteTodoItem/", views.deleteTodoItem, name="deleteTodoItem"),
 ]
