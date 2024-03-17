@@ -22,7 +22,7 @@ function handleInputCheckboxClickEvent(event, inputCheckbox) {
     completed: inputCheckbox.checked == true,
   };
 
-  const postUrl = `http://localhost:8000/todo/updateTodoItemCompleteStatus/${todoitemId}`;
+  const postUrl = `http://localhost:8000/todo/updateTodoItemCompleteStatus/${todoitemId}/`;
 
   fetch(postUrl, {
     method: "POST",
@@ -93,7 +93,7 @@ function todoItemFormSetup() {
           detail: todoItemDetailString,
         };
 
-        fetch("http://localhost:8000/todo/addTodoItem", {
+        fetch("http://localhost:8000/todo/addTodoItem/", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -182,7 +182,7 @@ function deleteTodoItem() {
           todoItemToDeleteId: todoItemId,
         };
 
-        fetch("http://localhost:8000/todo/deleteTodoItem", {
+        fetch("http://localhost:8000/todo/deleteTodoItem/", {
           method: "POST",
           headers: {
             Accept: "application/json",
