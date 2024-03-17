@@ -1,3 +1,6 @@
+let successToast;
+let errorToast;
+
 document.addEventListener("DOMContentLoaded", function () {
   initializeBootstrapToasts();
   todoItemFormSetup();
@@ -8,8 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
 function initializeBootstrapToasts() {
   const toastElList = document.querySelectorAll(".toast");
   const toastList = [...toastElList].map(
-    (toastEl) => new bootstrap.Toast(toastEl, option)
+    (toastEl) => new bootstrap.Toast(toastEl)
   );
+}
+
+function showErrorToast(message) {
+  const errorToastHTMLElement = document.getElementById("errorToast");
+
+  const errorToastBody = document.getElementById("errorToast-body");
+  errorToastBody.innerHTML = message;
+
+  errorToast = bootstrap.Toast.getOrCreateInstance(errorToastHTMLElement);
+  errorToast.show();
+}
+
+function showSuccessToast(message) {
+  const successToastHTMLElement = document.getElementById("successToast");
+
+  const successToastBody = document.getElementById("successToast-body");
+  successToastBody.innerHTML = message;
+
+  successToast = bootstrap.Toast.getOrCreateInstance(successToastHTMLElement);
+  successToast.show();
 }
 
 function todoItemTemplate(todoItem) {
@@ -144,12 +167,18 @@ function todoItemFormSetup() {
 
             // Remove "was-validated" class
             todoItemForm.classList.remove("was-validated");
+
+            // Display success toast
+            showSuccessToast(`TodoItem has been successfully added.`);
           })
           .catch((error) => {
             console.error(
               "There was a problem with the fetch operation:",
               error
             );
+
+            // Display error toast
+            showErrorToast("There was a problem adding the TodoItem.");
           });
       }
     },
@@ -210,12 +239,18 @@ function deleteTodoItem() {
             );
 
             todoItemToDeleteHTML.remove();
+
+            // Display success toast
+            showSuccessToast(`TodoItem has been successfully removed.`);
           })
           .catch((error) => {
             console.error(
               "There was a problem with the fetch operation:",
               error
             );
+
+            // Display error toast
+            showErrorToast("There was a problem removing the TodoItem.");
           });
       },
       false
