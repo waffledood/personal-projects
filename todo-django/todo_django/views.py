@@ -15,7 +15,7 @@ def index(request):
 
     return render(
         request=request,
-        template_name="todo_django/index.html",
+        template_name="index.html",
         context={"allTodoItemObjects": allTodoItemObjects},
     )
 
