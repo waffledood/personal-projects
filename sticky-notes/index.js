@@ -1,4 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {});
+document.addEventListener("DOMContentLoaded", function () {
+  const stickyNote = document.getElementById("sticky-note");
+
+  dragElement(stickyNote);
+});
 
 function dragElement(element) {
   var pos1 = 0,
