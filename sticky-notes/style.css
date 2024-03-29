@@ -4,3 +4,11 @@
 
   background-color: #e8e9eb;
 }
+
+:root {
+  --color-yellow: #f1f58f;
+  --color-orange: #ffa930;
+  --color-pink: #ff32b2;
+  --color-blue: #a9edf1;
+  --color-green: #74ed4b;
+}
