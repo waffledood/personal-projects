@@ -12,3 +12,14 @@
   --color-blue: #a9edf1;
   --color-green: #74ed4b;
 }
+
+#sticky-note {
+  height: 200px;
+  width: 200px;
+
+  cursor: grab;
+
+  background-color: var(--color-blue);
+
+  position: absolute;
+}
