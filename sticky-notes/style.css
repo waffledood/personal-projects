@@ -21,9 +21,12 @@
   height: 200px;
   width: 200px;
 
+  padding: 10px;
+
   cursor: grab;
 
   background-color: var(--color-blue);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 
   position: absolute;
 }
