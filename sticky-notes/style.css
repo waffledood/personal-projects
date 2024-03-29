@@ -23,3 +23,8 @@
 
   position: absolute;
 }
+
+#sticky-note:active {
+  cursor: grabbing;
+  outline: 10px black dashed;
+}
