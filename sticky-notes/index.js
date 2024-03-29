@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const stickyNote = document.getElementById("sticky-note");
 
-  dragElement(stickyNote);
+  makeStickyNote(stickyNote);
 });
 
-function dragElement(element) {
+function makeStickyNote(element) {
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
