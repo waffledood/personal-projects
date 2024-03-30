@@ -89,3 +89,65 @@ textarea {
 textarea:focus {
   outline-color: var(--color-blue-dark);
 }
+
+/* Color Classes */
+
+.yellow {
+  background-color: var(--color-yellow);
+}
+
+.yellow-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-yellow) 0%,
+    var(--color-yellow-dark) 100%
+  );
+}
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.orange-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-orange) 0%,
+    var(--color-orange-dark) 100%
+  );
+}
+
+.pink {
+  background-color: var(--color-pink);
+}
+
+.pink-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-pink) 0%,
+    var(--color-pink-dark) 100%
+  );
+}
+
+.blue {
+  background-color: var(--color-blue);
+}
+
+.blue-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-blue) 0%,
+    var(--color-blue-dark) 100%
+  );
+}
+
+.green {
+  background-color: var(--color-green);
+}
+
+.green-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-green) 0%,
+    var(--color-green-dark) 100%
+  );
+}
