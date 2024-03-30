@@ -1,4 +1,5 @@
 const maxNumberOfStickyNotes = 5;
+const stickyNoteColors = ["yellow", "orange", "pink", "blue", "green"];
 
 const allIds = Array.from(Array(maxNumberOfStickyNotes).keys());
 const availableIds = Array.from(Array(maxNumberOfStickyNotes).keys());
@@ -14,11 +15,22 @@ function createStickyNote() {
 
   console.log("Number selected:", number);
 
+  const addStickyNotePath = document.getElementById("add-sticky-note-path");
+  const colorOfNextStickyNote = Array.from(addStickyNotePath.classList)[0];
+
+  const randomColor =
+    stickyNoteColors[Math.floor(Math.random() * stickyNoteColors.length)];
+
+  addStickyNotePath.classList.remove(colorOfNextStickyNote);
+  addStickyNotePath.classList.add(randomColor);
+
+  const color = colorOfNextStickyNote || randomColor;
+
   // Create new sticky note
   const stickyNoteTemplate = `
-    <div id="sticky-note-${number}" data-id="${number}" class="sticky-note">
-      <div id="sticky-note-${number}-header" class="sticky-note-header"></div>
-      <textarea name="" id="sticky-note-${number}-text" cols="" rows=""></textarea>
+    <div id="sticky-note-${number}" data-id="${number}" class="sticky-note ${color}">
+      <div id="sticky-note-${number}-header" class="sticky-note-header ${color}-header"></div>
+      <textarea name="" id="sticky-note-${number}-text" class="${color}" cols="" rows=""></textarea>
     </div>
   `;
 
