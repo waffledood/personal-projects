@@ -22,7 +22,7 @@
   --color-green-dark: #6bd149;
 }
 
-#sticky-note {
+.sticky-note {
   height: 200px;
   width: 200px;
 
@@ -34,7 +34,7 @@
   position: absolute;
 }
 
-#sticky-note:active {
+.sticky-note:active {
   cursor: grabbing;
   outline: 10px black dashed;
 }
@@ -64,7 +64,7 @@ path {
   fill: var(--color-orange);
 }
 
-#sticky-note-header {
+.sticky-note-header {
   background-color: var(--color-blue-dark);
 
   height: 40px;
