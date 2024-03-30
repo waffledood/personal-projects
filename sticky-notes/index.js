@@ -1,3 +1,5 @@
+const maxNumberOfStickyNotes = 5;
+
 document.addEventListener("DOMContentLoaded", function () {
   const newStickyNote = createStickyNote();
   document.getElementById("sticky-notes-container").append(newStickyNote);
