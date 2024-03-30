@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createStickyNote() {
+  // Select id for new sticky note, from pool of available id's
   const number = availableIds[Math.floor(Math.random() * availableIds.length)];
 
   console.log("Number selected:", number);
 
+  // Create new sticky note
   const stickyNoteTemplate = `
     <div id="sticky-note-${number}" data-id="${number}" class="sticky-note">
       <div id="sticky-note-${number}-header" class="sticky-note-header"></div>
@@ -25,7 +27,12 @@ function createStickyNote() {
 
   const stickyNote = doc.body.firstChild;
 
-  return stickyNote;
+  // Add sticky note to HTML doc
+  document.getElementById("sticky-notes-container").append(stickyNote);
+
+  makeElementDraggable(stickyNote);
+
+  updateAvailableIds();
 }
 
 function makeElementDraggable(element) {
@@ -87,9 +94,6 @@ function addStickyNoteIconClickHandler(event) {
 
   // Create a new sticky note when the add-sticky-note div is clicked
   if (availableIds.length != 0) {
-    const newStickyNote = createStickyNote();
-    document.getElementById("sticky-notes-container").append(newStickyNote);
-    makeElementDraggable(newStickyNote);
-    updateAvailableIds();
+    createStickyNote();
   }
 }
