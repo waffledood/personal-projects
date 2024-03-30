@@ -18,7 +18,7 @@ function createStickyNote() {
   const stickyNoteTemplate = `
     <div id="sticky-note-${number}" data-id="${number}" class="sticky-note">
       <div id="sticky-note-${number}-header" class="sticky-note-header"></div>
-      <textarea name="" id="" cols="" rows=""></textarea>
+      <textarea name="" id="sticky-note-${number}-text" cols="" rows=""></textarea>
     </div>
   `;
 
