@@ -52,6 +52,18 @@
   left: 20px;
 }
 
+#add-sticky-note:hover {
+  cursor: pointer;
+}
+
+#add-sticky-note:active > svg > path {
+  fill: var(--color-orange-dark);
+}
+
+path {
+  fill: var(--color-orange);
+}
+
 #sticky-note-header {
   background-color: var(--color-blue-dark);
 
