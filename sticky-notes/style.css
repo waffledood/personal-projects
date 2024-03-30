@@ -78,8 +78,7 @@ textarea {
 }
 
 textarea:focus {
-  outline-color: var(--color-blue-dark);
-  /* TODO - Remove & set programmatically via JS */
+  outline: none !important;
 }
 
 /* Color Classes */
