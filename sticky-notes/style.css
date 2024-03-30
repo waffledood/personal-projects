@@ -59,10 +59,6 @@
   fill: var(--color-orange-dark);
 }
 
-path {
-  fill: var(--color-orange);
-}
-
 .sticky-note-header {
   height: 40px;
 }
@@ -90,6 +86,7 @@ textarea:focus {
 
 .yellow {
   background-color: var(--color-yellow);
+  fill: var(--color-yellow);
 }
 
 .yellow-header {
@@ -102,6 +99,7 @@ textarea:focus {
 
 .orange {
   background-color: var(--color-orange);
+  fill: var(--color-orange);
 }
 
 .orange-header {
@@ -114,6 +112,7 @@ textarea:focus {
 
 .pink {
   background-color: var(--color-pink);
+  fill: var(--color-pink);
 }
 
 .pink-header {
@@ -126,6 +125,7 @@ textarea:focus {
 
 .blue {
   background-color: var(--color-blue);
+  fill: var(--color-blue);
 }
 
 .blue-header {
@@ -138,6 +138,7 @@ textarea:focus {
 
 .green {
   background-color: var(--color-green);
+  fill: var(--color-green);
 }
 
 .green-header {
