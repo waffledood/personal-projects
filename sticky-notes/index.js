@@ -1,9 +1,8 @@
 const maxNumberOfStickyNotes = 5;
 
 document.addEventListener("DOMContentLoaded", function () {
-  const newStickyNote = createStickyNote();
-  document.getElementById("sticky-notes-container").append(newStickyNote);
-  makeElementDraggable(newStickyNote);
+  const addStickyNoteIconDiv = document.getElementById("add-sticky-note");
+  addStickyNoteIconDiv.addEventListener("click", addStickyNoteIconClickHandler);
 });
 
 function createStickyNote() {
@@ -61,4 +60,11 @@ function makeElementDraggable(element) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+
+function addStickyNoteIconClickHandler(event) {
+  // Create a new sticky note when the add-sticky-note div is clicked
+  const newStickyNote = createStickyNote();
+  document.getElementById("sticky-notes-container").append(newStickyNote);
+  makeElementDraggable(newStickyNote);
 }
