@@ -10,7 +10,7 @@ function makeStickyNote(element) {
     pos3 = 0,
     pos4 = 0;
 
-  element.onmousedown = dragMouseDown;
+  document.getElementById(element.id + "-header").onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
     e = e || window.event;
