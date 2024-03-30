@@ -1,8 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const stickyNote = document.getElementById("sticky-note");
-
-  makeStickyNote(stickyNote);
+  const newStickyNote = createStickyNote();
+  document.getElementById("sticky-notes-container").append(newStickyNote);
+  makeElementDraggable(newStickyNote);
 });
+
+function createStickyNote() {
+  const number = 1;
+
+  const stickyNoteTemplate = `
+    <div id="sticky-note-${number}" class="sticky-note">
+      <div id="sticky-note-${number}-header" class="sticky-note-header"></div>
+      <textarea name="" id="" cols="" rows=""></textarea>
+    </div>
+  `;
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(stickyNoteTemplate, "text/html");
+
+  const stickyNote = doc.body.firstChild;
+
+  return stickyNote;
+}
 
 function makeElementDraggable(element) {
   var pos1 = 0,
