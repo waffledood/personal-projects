@@ -1,15 +1,20 @@
 const maxNumberOfStickyNotes = 5;
 
+const allIds = Array.from(Array(maxNumberOfStickyNotes).keys());
+const availableIds = Array.from(Array(maxNumberOfStickyNotes).keys());
+
 document.addEventListener("DOMContentLoaded", function () {
   const addStickyNoteIconDiv = document.getElementById("add-sticky-note");
   addStickyNoteIconDiv.addEventListener("click", addStickyNoteIconClickHandler);
 });
 
 function createStickyNote() {
-  const number = 1;
+  const number = availableIds[Math.floor(Math.random() * availableIds.length)];
+
+  console.log("Number selected:", number);
 
   const stickyNoteTemplate = `
-    <div id="sticky-note-${number}" class="sticky-note">
+    <div id="sticky-note-${number}" data-id="${number}" class="sticky-note">
       <div id="sticky-note-${number}-header" class="sticky-note-header"></div>
       <textarea name="" id="" cols="" rows=""></textarea>
     </div>
@@ -62,9 +67,29 @@ function makeElementDraggable(element) {
   }
 }
 
+function updateAvailableIds() {
+  const activeStickyNotes = document.getElementsByClassName("sticky-note");
+
+  for (let i = 0; i < activeStickyNotes.length; i++) {
+    const element = activeStickyNotes[i];
+    const indexOfActiveId = availableIds.indexOf(Number(element.dataset.id));
+
+    if (indexOfActiveId > -1) {
+      availableIds.splice(indexOfActiveId, 1);
+    }
+  }
+}
+
 function addStickyNoteIconClickHandler(event) {
+  const addStickyNoteIconDiv = event.currentTarget;
+
+  const addStickNoteIcon = document.getElementById("add-sticky-note-path");
+
   // Create a new sticky note when the add-sticky-note div is clicked
-  const newStickyNote = createStickyNote();
-  document.getElementById("sticky-notes-container").append(newStickyNote);
-  makeElementDraggable(newStickyNote);
+  if (availableIds.length != 0) {
+    const newStickyNote = createStickyNote();
+    document.getElementById("sticky-notes-container").append(newStickyNote);
+    makeElementDraggable(newStickyNote);
+    updateAvailableIds();
+  }
 }
