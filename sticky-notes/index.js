@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   makeStickyNote(stickyNote);
 });
 
-function makeStickyNote(element) {
+function makeElementDraggable(element) {
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
