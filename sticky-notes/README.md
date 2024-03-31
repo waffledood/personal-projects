@@ -1,5 +1,9 @@
 # Sticky Notes
 
+## Link
+
+This project is accessible via this [link](https://waffledood.github.io/personal-projects/sticky-notes).
+
 ## Description
 
 Had a sudden creative burst that you need to pen down? Why use actual sticky notes when you can use virtual ones! I got inspiration from this [image](https://www.vectorstock.com/royalty-free-vector/sticky-empty-notes-corkwood-board-on-wall-vector-23673918), but also the many brainstorming sessions I've had during hackathons, workshops & university classes.
