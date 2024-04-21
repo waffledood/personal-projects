@@ -6,6 +6,10 @@ const availableIds = Array.from(Array(maxNumberOfStickyNotes).keys());
 
 document.addEventListener("DOMContentLoaded", function () {
   const addStickyNoteIconDiv = document.getElementById("add-sticky-note");
+  addStickyNoteIconDiv.addEventListener(
+    "mousedown",
+    changeStickyNoteSVGIconColor
+  );
   addStickyNoteIconDiv.addEventListener("click", addStickyNoteIconClickHandler);
 });
 
@@ -108,4 +112,18 @@ function addStickyNoteIconClickHandler(event) {
   if (availableIds.length != 0) {
     createStickyNote();
   }
+}
+
+function changeStickyNoteSVGIconColor() {
+  const addStickyNotePath = document.getElementById("add-sticky-note-path");
+  const colorOfNextStickyNote = Array.from(addStickyNotePath.classList)[0];
+
+  // Get the root element
+  const root = document.documentElement;
+
+  // Set the value of the CSS variable
+  root.style.setProperty(
+    "--color-active-svg",
+    `var(--color-${colorOfNextStickyNote}-dark)`
+  );
 }
