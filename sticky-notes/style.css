@@ -20,6 +20,7 @@
   --color-blue-dark: #93c4c7;
   --color-green: #74ed4b;
   --color-green-dark: #6bd149;
+  --color-active-svg: var(--color-yellow-dark);
 }
 
 .sticky-note {
@@ -56,7 +57,7 @@
 }
 
 #add-sticky-note:active > svg > path {
-  fill: var(--color-orange-dark);
+  fill: var(--color-active-svg);
 }
 
 .sticky-note-header {
