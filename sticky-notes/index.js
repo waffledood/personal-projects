@@ -1,7 +1,6 @@
 const maxNumberOfStickyNotes = 5;
 const stickyNoteColors = ["yellow", "orange", "pink", "blue", "green"];
 
-const allIds = Array.from(Array(maxNumberOfStickyNotes).keys());
 const availableIds = Array.from(Array(maxNumberOfStickyNotes).keys());
 
 document.addEventListener("DOMContentLoaded", function () {
