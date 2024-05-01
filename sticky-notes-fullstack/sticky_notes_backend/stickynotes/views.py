@@ -10,3 +10,8 @@ from .serializers import NoteSerializer
 class NoteAPIView(generics.ListAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
+
+
+class DetailNote(generics.RetrieveAPIView):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
