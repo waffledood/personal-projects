@@ -18,3 +18,10 @@ class APITests(APITestCase):
         response = self.client.get(reverse("note_list"))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.note.text)
+
+    def test_api_detailview(self):
+        response = self.client.get(
+            reverse("note_detail", kwargs={"pk": self.note.id}), format="json"
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, self.note.text)
