@@ -7,7 +7,7 @@ from .models import Note
 from .serializers import NoteSerializer
 
 
-class ListNote(generics.ListAPIView):
+class ListNote(generics.ListCreateAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
