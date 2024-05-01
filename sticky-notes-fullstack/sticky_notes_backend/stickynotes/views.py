@@ -12,6 +12,6 @@ class ListNote(generics.ListCreateAPIView):
     serializer_class = NoteSerializer
 
 
-class DetailNote(generics.RetrieveAPIView):
+class DetailNote(generics.RetrieveUpdateDestroyAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
