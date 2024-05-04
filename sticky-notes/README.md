@@ -25,3 +25,9 @@ These were tools I used to help with the development of this project:
 
 - [CSS Gradient](https://cssgradient.io/)
 - [Font Awesome](https://fontawesome.com/icons/note-sticky?f=classic&s=solid)
+
+## References
+
+Reference materials:
+
+- [Ideaflip](https://ideaflip.com/) - a sticky note website
