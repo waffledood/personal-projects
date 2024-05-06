@@ -34,6 +34,13 @@ class APITests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.note.text)
 
+    def test_api_authornoteslistview(self):
+        response = self.client.get(
+            reverse("author_notes_list", kwargs={"pk": self.author.id}), format="json"
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, self.note.text)
+
     def test_api_authordetailview(self):
         response = self.client.get(
             reverse("author_detail", kwargs={"pk": self.author.id}), format="json"
