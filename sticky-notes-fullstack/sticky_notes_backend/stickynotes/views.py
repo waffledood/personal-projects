@@ -9,7 +9,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 from .models import Note
-from .serializers import NoteSerializer
+from .serializers import NoteSerializer, UserSerializer
 
 
 class ListNote(generics.ListCreateAPIView):
@@ -52,4 +52,4 @@ def listAuthorNotes(request, pk):
 
 class DetailAuthor(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
-    serializer_class = NoteSerializer
+    serializer_class = UserSerializer
