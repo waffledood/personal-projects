@@ -14,12 +14,12 @@ class APITests(APITestCase):
             text="This is my 1st sticky note", x_pixels_coord=120, y_pixels_coord=200
         )
 
-    def test_api_listview(self):
+    def test_api_notelistview(self):
         response = self.client.get(reverse("note_list"))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.note.text)
 
-    def test_api_detailview(self):
+    def test_api_notedetailview(self):
         response = self.client.get(
             reverse("note_detail", kwargs={"pk": self.note.id}), format="json"
         )
