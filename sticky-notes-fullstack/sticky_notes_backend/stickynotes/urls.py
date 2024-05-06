@@ -1,8 +1,9 @@
 from django.urls import path
 
-from .views import ListNote, DetailNote
+from .views import ListNote, DetailNote, DetailAuthor
 
 urlpatterns = [
     path(route="notes/", view=ListNote.as_view(), name="note_list"),
     path(route="note/<int:pk>/", view=DetailNote.as_view(), name="note_detail"),
+    path(route="author/<int:pk>/", view=DetailAuthor.as_view(), name="author_detail"),
 ]
