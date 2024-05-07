@@ -19,6 +19,7 @@ class ListNote(generics.ListCreateAPIView):
 
 
 class DetailNote(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthorOrReadOnly,)
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
