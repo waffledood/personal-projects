@@ -1,5 +1,5 @@
 from rest_framework import generics, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 
@@ -9,6 +9,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 from .models import Note
+from .permissions import IsAuthorOrReadOnly
 from .serializers import NoteSerializer, UserSerializer
 
 
@@ -23,6 +24,7 @@ class DetailNote(generics.RetrieveUpdateDestroyAPIView):
 
 
 @api_view(["GET", "POST"])
+@permission_classes([IsAuthorOrReadOnly])
 def listAuthorNotes(request, pk):
     try:
         author = User.objects.get(id=pk)
