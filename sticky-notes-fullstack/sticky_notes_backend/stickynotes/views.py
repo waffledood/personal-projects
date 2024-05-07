@@ -9,7 +9,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 from .models import Note
-from .permissions import IsAuthorOrReadOnly
+from .permissions import IsAuthorOrReadOnly, IsUserOrReadOnly
 from .serializers import NoteSerializer, UserSerializer
 
 
@@ -54,5 +54,6 @@ def listAuthorNotes(request, pk):
 
 
 class DetailAuthor(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsUserOrReadOnly,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
