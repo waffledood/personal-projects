@@ -15,9 +15,10 @@ from .serializers import NoteSerializer, UserSerializer
 
 class ListNote(generics.ListCreateAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
-    queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
+    def get_queryset(self):
+        return Note.objects.filter(author=self.request.user)
 
 class DetailNote(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
