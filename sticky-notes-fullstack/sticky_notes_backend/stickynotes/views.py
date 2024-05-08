@@ -20,6 +20,10 @@ class ListNote(generics.ListCreateAPIView):
     def get_queryset(self):
         return Note.objects.filter(author=self.request.user)
 
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
 class DetailNote(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Note.objects.all()
