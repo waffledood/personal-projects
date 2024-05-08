@@ -5,6 +5,8 @@ from .models import Note
 
 
 class NoteSerializer(serializers.ModelSerializer):
+    author = serializers.ReadOnlyField(source="author.username")
+
     class Meta:
         model = Note
         fields = ("id", "text", "author", "x_pixels_coord", "y_pixels_coord")
