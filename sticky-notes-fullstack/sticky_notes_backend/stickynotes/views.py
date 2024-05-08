@@ -14,6 +14,7 @@ from .serializers import NoteSerializer, UserSerializer
 
 
 class ListNote(generics.ListCreateAPIView):
+    permission_classes = (IsAuthorOrReadOnly,)
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
