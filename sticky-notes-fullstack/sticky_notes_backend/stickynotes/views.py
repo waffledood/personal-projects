@@ -23,6 +23,9 @@ class DetailNote(generics.RetrieveUpdateDestroyAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
+    def perform_update(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class ListAuthor(generics.ListCreateAPIView):
     permission_classes = (IsUserOrReadOnly,)
