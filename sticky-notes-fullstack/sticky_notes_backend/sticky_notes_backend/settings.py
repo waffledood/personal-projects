@@ -154,9 +154,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-REST_AUTH = {
-    "USE_JWT": True,
-}
+REST_AUTH = {"USE_JWT": True, "JWT_AUTH_HTTPONLY": False}
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
