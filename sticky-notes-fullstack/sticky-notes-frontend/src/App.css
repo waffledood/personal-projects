@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+
+  background-color: #d2d2d4;
+
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
