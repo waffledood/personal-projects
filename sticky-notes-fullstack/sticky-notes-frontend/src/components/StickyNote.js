@@ -1,6 +1,6 @@
 import "./StickyNote.css";
 
-function StickyNote({ id, color }) {
+function StickyNote({ id, color, children }) {
   return (
     <div
       id={`sticky-note-${id}`}
@@ -17,7 +17,9 @@ function StickyNote({ id, color }) {
         className={`${color}`}
         cols=""
         rows=""
-      ></textarea>
+      >
+        {children}
+      </textarea>
     </div>
   );
 }
