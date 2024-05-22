@@ -1,7 +1,15 @@
+import React from "react";
 import "./App.css";
 
+import AddStickyNoteIcon from "./components/AddStickyNoteIcon";
+
 function App() {
-  return <div>hello world!</div>;
+  return (
+    <React.Fragment>
+      hello world!
+      <AddStickyNoteIcon />
+    </React.Fragment>
+  );
 }
 
 export default App;
