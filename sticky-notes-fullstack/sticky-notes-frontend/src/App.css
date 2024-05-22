@@ -8,3 +8,84 @@
   font-weight: 400;
   font-style: normal;
 }
+
+:root {
+  --color-yellow: #f1f58f;
+  --color-yellow-dark: #d6d984;
+  --color-orange: #ffa930;
+  --color-orange-dark: #de9835;
+  --color-pink: #ff32b2;
+  --color-pink-dark: #cc3d95;
+  --color-blue: #a9edf1;
+  --color-blue-dark: #93c4c7;
+  --color-green: #74ed4b;
+  --color-green-dark: #6bd149;
+  --color-active-svg: var(--color-yellow-dark);
+}
+
+/* Color Classes */
+
+.yellow {
+  background-color: var(--color-yellow);
+  fill: var(--color-yellow);
+}
+
+.yellow-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-yellow) 0%,
+    var(--color-yellow-dark) 100%
+  );
+}
+
+.orange {
+  background-color: var(--color-orange);
+  fill: var(--color-orange);
+}
+
+.orange-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-orange) 0%,
+    var(--color-orange-dark) 100%
+  );
+}
+
+.pink {
+  background-color: var(--color-pink);
+  fill: var(--color-pink);
+}
+
+.pink-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-pink) 0%,
+    var(--color-pink-dark) 100%
+  );
+}
+
+.blue {
+  background-color: var(--color-blue);
+  fill: var(--color-blue);
+}
+
+.blue-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-blue) 0%,
+    var(--color-blue-dark) 100%
+  );
+}
+
+.green {
+  background-color: var(--color-green);
+  fill: var(--color-green);
+}
+
+.green-header {
+  background: linear-gradient(
+    0deg,
+    var(--color-green) 0%,
+    var(--color-green-dark) 100%
+  );
+}
