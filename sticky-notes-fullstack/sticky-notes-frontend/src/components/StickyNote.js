@@ -1,11 +1,20 @@
+import { useState } from "react";
+
 import "./StickyNote.css";
 
-function StickyNote({ id, color, children }) {
+function StickyNote({ id, color, xCoord, yCoord, children }) {
+  const [x, setX] = useState(xCoord);
+  const [y, setY] = useState(yCoord);
+
   return (
     <div
       id={`sticky-note-${id}`}
       data-id={`${id}`}
       className={`sticky-note ${color}`}
+      style={{
+        top: y,
+        left: x,
+      }}
     >
       <div
         id={`sticky-note-${id}-header`}
