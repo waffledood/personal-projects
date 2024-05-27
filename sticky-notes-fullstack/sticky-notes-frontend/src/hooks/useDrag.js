@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const useDrag = (startingPosition) => {
+const useDrag = ({ startingXCoord, startingYCoord }) => {
   const [dragInfo, setDragInfo] = useState({
     isDragging: false,
     origin: { x: 0, y: 0 },
-    translation: startingPosition,
-    lastTranslation: startingPosition,
+    translation: { x: startingXCoord, y: startingYCoord },
+    lastTranslation: { x: startingXCoord, y: startingYCoord },
   });
 
   const { isDragging } = dragInfo;
