@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "./StickyNote.css";
 
 import useDrag from "../hooks/useDrag";
