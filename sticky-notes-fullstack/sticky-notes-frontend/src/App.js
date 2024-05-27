@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
 
-import AddStickyNoteIcon from "./components/AddStickyNoteIcon";
+import StickyNoteBoard from "./components/StickyNoteBoard";
 
 function App() {
   return (
     <React.Fragment>
-      hello world!
-      <AddStickyNoteIcon />
+      <StickyNoteBoard />
     </React.Fragment>
   );
 }
