@@ -4,8 +4,8 @@ import "./StickyNote.css";
 
 import useDrag from "../hooks/useDrag";
 
-function StickyNote({ id, color, xCoord, yCoord, children }) {
-  const startingPosition = { startingXCoord: xCoord, startingYCoord: yCoord };
+function StickyNote({ id, color, x, y, children }) {
+  const startingPosition = { startingXCoord: x, startingYCoord: y };
 
   const { picturePosition, handleMouseDown, handleMouseMove, handleMouseUp } =
     useDrag(startingPosition);
