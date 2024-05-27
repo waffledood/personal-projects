@@ -3,9 +3,11 @@ import "./AddStickyNoteIcon.css";
 function AddStickyNoteIcon({ stickyNotes, addStickyNotes }) {
   const addStickyNoteHandler = () => {
     // TODO - Remove hardcoded declaration of StickyNote
+    const colors = ["yellow", "orange", "pink", "blue", "green"];
+
     const newStickyNote = {
-      id: 1,
-      color: "yellow",
+      id: Math.random() * 100 + 1,
+      color: colors[Math.floor(Math.random() * colors.length)],
       x: 20,
       y: 20,
     };
