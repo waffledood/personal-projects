@@ -1,9 +1,25 @@
 import "./AddStickyNoteIcon.css";
 
-function AddStickyNoteIcon() {
+function AddStickyNoteIcon({ addStickyNoteHandler, stickyNotes }) {
+  const addStickyNote = () => {
+    // TODO - Remove hardcoded declaration of StickyNote
+    const newStickyNote = {
+      id: 1,
+      color: "yellow",
+      x: 20,
+      y: 20,
+    };
+
+    addStickyNoteHandler([...stickyNotes, newStickyNote]);
+  };
+
   return (
     <div id="add-sticky-note">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 448 448">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 30 448 448"
+        onClick={addStickyNote}
+      >
         <path
           id="add-sticky-note-path"
           className="yellow"
