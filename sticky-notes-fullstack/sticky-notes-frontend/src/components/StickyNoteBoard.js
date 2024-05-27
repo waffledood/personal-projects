@@ -11,8 +11,8 @@ function StickyNoteBoard() {
     <React.Fragment>
       <StickyNoteContainer stickyNotes={stickyNotes} />
       <AddStickyNoteIcon
-        addStickyNoteHandler={addStickyNotes}
         stickyNotes={stickyNotes}
+        addStickyNotes={addStickyNotes}
       />
     </React.Fragment>
   );

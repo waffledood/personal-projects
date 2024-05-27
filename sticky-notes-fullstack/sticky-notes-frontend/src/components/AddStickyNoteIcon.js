@@ -1,7 +1,7 @@
 import "./AddStickyNoteIcon.css";
 
-function AddStickyNoteIcon({ addStickyNoteHandler, stickyNotes }) {
-  const addStickyNote = () => {
+function AddStickyNoteIcon({ stickyNotes, addStickyNotes }) {
+  const addStickyNoteHandler = () => {
     // TODO - Remove hardcoded declaration of StickyNote
     const newStickyNote = {
       id: 1,
@@ -10,7 +10,7 @@ function AddStickyNoteIcon({ addStickyNoteHandler, stickyNotes }) {
       y: 20,
     };
 
-    addStickyNoteHandler([...stickyNotes, newStickyNote]);
+    addStickyNotes([...stickyNotes, newStickyNote]);
   };
 
   return (
@@ -18,7 +18,7 @@ function AddStickyNoteIcon({ addStickyNoteHandler, stickyNotes }) {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 30 448 448"
-        onClick={addStickyNote}
+        onClick={addStickyNoteHandler}
       >
         <path
           id="add-sticky-note-path"
