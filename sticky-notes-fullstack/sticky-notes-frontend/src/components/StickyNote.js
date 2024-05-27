@@ -2,9 +2,13 @@ import { useState } from "react";
 
 import "./StickyNote.css";
 
+import useDrag from "../hooks/useDrag";
+
 function StickyNote({ id, color, xCoord, yCoord, children }) {
-  const [x, setX] = useState(xCoord);
-  const [y, setY] = useState(yCoord);
+  const startingPosition = { startingXCoord: xCoord, startingYCoord: yCoord };
+
+  const { picturePosition, handleMouseDown, handleMouseMove, handleMouseUp } =
+    useDrag(startingPosition);
 
   return (
     <div
@@ -12,9 +16,12 @@ function StickyNote({ id, color, xCoord, yCoord, children }) {
       data-id={`${id}`}
       className={`sticky-note ${color}`}
       style={{
-        top: y,
-        left: x,
+        ...picturePosition,
       }}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseMove}
+      onMouseUp={handleMouseUp}
     >
       <div
         id={`sticky-note-${id}-header`}
