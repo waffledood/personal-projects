@@ -21,12 +21,26 @@ function AddStickyNoteIcon({ stickyNotes, addStickyNotes }) {
     addStickyNotes([...stickyNotes, newStickyNote]);
   };
 
+  const onMouseDownHandler = () => {
+    setColorOfNextStickyNote((currentColor) => {
+      return `${currentColor}-dark`;
+    });
+  };
+
+  const onMouseUpHandler = () => {
+    setColorOfNextStickyNote((currentColor) => {
+      return `${currentColor.replace("-dark", "")}`;
+    });
+  };
+
   return (
     <div id="add-sticky-note">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 30 448 448"
         onClick={addStickyNoteHandler}
+        onMouseDown={onMouseDownHandler}
+        onMouseUp={onMouseUpHandler}
       >
         <path
           id="add-sticky-note-path"
