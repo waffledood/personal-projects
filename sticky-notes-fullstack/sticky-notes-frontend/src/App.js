@@ -1,5 +1,10 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 
 import "./App.css";
 
@@ -8,13 +13,15 @@ import ErrorPage from "./routes/ErrorPage";
 import StickyNoteBoard from "./components/StickyNoteBoard";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <StickyNoteBoard />,
-      errorElement: <ErrorPage />,
-    },
-  ]);
+  const router = createBrowserRouter(
+    createRoutesFromElements([
+      <Route
+        path={"/"}
+        element={<StickyNoteBoard />}
+        errorElement={<ErrorPage />}
+      />,
+    ])
+  );
 
   return (
     <React.Fragment>
