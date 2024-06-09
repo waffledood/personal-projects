@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
 
+import ErrorPage from "./routes/ErrorPage";
+
 import StickyNoteBoard from "./components/StickyNoteBoard";
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
     {
       path: "/",
       element: <StickyNoteBoard />,
+      errorElement: <ErrorPage />,
     },
   ]);
 
