@@ -9,6 +9,11 @@
   font-style: normal;
 }
 
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
 :root {
   --color-yellow: #f1f58f;
   --color-yellow-dark: #d6d984;
