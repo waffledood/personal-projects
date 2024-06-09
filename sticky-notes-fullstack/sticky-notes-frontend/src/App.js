@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -8,16 +8,20 @@ import {
 
 import "./App.css";
 
+import Login from "./components/auth/Login";
 import ErrorPage from "./routes/ErrorPage";
 
 import StickyNoteBoard from "./components/StickyNoteBoard";
 
 function App() {
+  // TODO - Handle authentication of user (useContext?)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const router = createBrowserRouter(
     createRoutesFromElements([
       <Route
         path={"/"}
-        element={<StickyNoteBoard />}
+        element={isAuthenticated ? <StickyNoteBoard /> : <Login />}
         errorElement={<ErrorPage />}
       />,
     ])
