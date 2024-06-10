@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -28,9 +28,9 @@ function App() {
   );
 
   return (
-    <React.Fragment>
+    <main>
       <RouterProvider router={router} />
-    </React.Fragment>
+    </main>
   );
 }
 
