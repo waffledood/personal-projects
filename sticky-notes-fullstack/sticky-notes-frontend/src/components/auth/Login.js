@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 
 import "./Login.css";
 
+import axios from "./axios";
+
+const LOGIN_URL = "/dj-rest-auth/login/";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,13 +24,38 @@ function Login() {
     setErrMsg("");
   }, [username, password]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // clear username & password fields
-    setUsername("");
-    setPassword("");
-    setSuccess(true);
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ username, password }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+
+      // clear username & password fields
+      setUsername("");
+      setPassword("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
+    }
   };
 
   return (
