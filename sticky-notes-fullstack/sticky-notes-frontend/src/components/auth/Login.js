@@ -79,25 +79,29 @@ function Login() {
           </p>
           <h1>Sign In</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              ref={usernameRef}
-              autoComplete="off"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              required
-            />
+            <div class="input-layout">
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                ref={usernameRef}
+                autoComplete="off"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                required
+              />
+            </div>
 
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              required
-            />
+            <div class="input-layout">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
+            </div>
             <button>Sign In</button>
           </form>
           <p>
