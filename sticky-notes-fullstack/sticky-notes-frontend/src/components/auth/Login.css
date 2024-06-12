@@ -45,3 +45,9 @@ button {
   border: 2px black solid;
   border-radius: 0.5rem;
 }
+
+#signin:hover {
+  cursor: pointer;
+  background-color: #bcbcc1;
+  transition: 0.3s;
+}
