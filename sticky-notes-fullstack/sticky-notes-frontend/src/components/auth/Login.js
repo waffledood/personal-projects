@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import "./Login.css";
+import styles from "./Login.module.css";
 
 import axios from "./axios";
 
@@ -69,17 +69,17 @@ function Login() {
           </p>
         </section>
       ) : (
-        <section>
+        <section className={styles.section}>
           <p
             ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
+            className={errMsg ? styles.err_msg : "offscreen"}
             aria-live="assertive"
           >
             {errMsg}
           </p>
           <h1>Sign In</h1>
-          <form onSubmit={handleSubmit}>
-            <div class="input-layout">
+          <form onSubmit={handleSubmit} className={styles.login_form}>
+            <div className={styles.input_layout}>
               <label htmlFor="username">Username:</label>
               <input
                 type="text"
@@ -92,7 +92,7 @@ function Login() {
               />
             </div>
 
-            <div class="input-layout">
+            <div className={styles.input_layout}>
               <label htmlFor="password">Password:</label>
               <input
                 type="password"

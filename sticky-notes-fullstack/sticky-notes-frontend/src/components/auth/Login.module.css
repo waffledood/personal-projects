@@ -1,4 +1,4 @@
-section {
+.section {
   max-width: 420px;
   min-height: 400px;
 
@@ -10,7 +10,7 @@ section {
   padding: 10px;
 }
 
-form {
+.login_form {
   min-height: 300px;
 
   display: flex;
@@ -19,16 +19,16 @@ form {
   padding-bottom: 1rem;
 }
 
-.input-layout {
+.input_layout {
   display: flex;
   flex-direction: column;
 }
 
-.input-layout > label {
+.input_layout > label {
   margin-bottom: 10px;
 }
 
-.errmsg {
+.err_msg {
   background-color: lightpink;
   color: firebrick;
   font-weight: bold;
