@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Register.module.css";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -11,6 +12,7 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [validUsername, setValidUsername] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
   const [validPasswordMatch, setValidPasswordMatch] = useState(false);
 
   const usernameRef = useRef();
@@ -28,8 +30,12 @@ function Register() {
   }, [username]);
 
   useEffect(() => {
+    setValidEmail(EMAIL_REGEX.test(email));
+  }, [email]);
+
+  useEffect(() => {
     setErrMsg("");
-  }, [username, password]);
+  }, [username, email, password]);
 
   useEffect(() => {
     setValidPasswordMatch(
@@ -118,7 +124,7 @@ function Register() {
 
             <button
               className={styles.signup}
-              disabled={!validPasswordMatch || !validUsername}
+              disabled={!validPasswordMatch || !validUsername || !validEmail}
             >
               Sign Up
             </button>
