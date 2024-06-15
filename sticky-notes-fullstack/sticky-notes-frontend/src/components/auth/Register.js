@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
+import axios from "./axios";
+
 import styles from "./Register.module.css";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
+
+const REGISTER_URL = "/dj-rest-auth/registration/";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -43,14 +47,58 @@ function Register() {
     );
   }, [password, confirmPassword]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // clear username, email & password fields
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setSuccess(true);
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({
+          username,
+          email,
+          password1: password,
+          password2: confirmPassword,
+        }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+
+      // clear username, email & password fields
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setSuccess(true);
+    } catch (err) {
+      const response = err?.response;
+
+      console.log("response:", response);
+
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      }
+
+      switch (response.status) {
+        case 400:
+          const responseStatusData = response?.data;
+
+          let errorMessage = "";
+          Object.keys(responseStatusData).forEach((key) => {
+            errorMessage += `${key}: ${responseStatusData[key][0]}\n`;
+          });
+          setErrMsg(errorMessage);
+          break;
+        case 401:
+          setErrMsg("Unauthorized");
+          break;
+        default:
+          setErrMsg("Login Failed");
+      }
+    }
   };
 
   return (
