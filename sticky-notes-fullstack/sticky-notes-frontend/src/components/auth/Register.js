@@ -24,63 +24,75 @@ function Register() {
   };
 
   return (
-    <section>
-      <p
-        ref={errRef}
-        className={errMsg ? "errmsg" : "offscreen"}
-        aria-live="assertive"
-      >
-        {errMsg}
-      </p>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <div class="input-layout">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            ref={usernameRef}
-            autoComplete="off"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            required
-          />
-        </div>
+    <>
+      {success ? (
+        <section>
+          <h1>You are logged in!</h1>
+          <br />
+          <p>
+            <a href="#">Go to Home</a>
+          </p>
+        </section>
+      ) : (
+        <section>
+          <p
+            ref={errRef}
+            className={errMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSubmit}>
+            <div class="input-layout">
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                ref={usernameRef}
+                autoComplete="off"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                required
+              />
+            </div>
 
-        <div class="input-layout">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            autoComplete="off"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            required
-          />
-        </div>
+            <div class="input-layout">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                autoComplete="off"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+              />
+            </div>
 
-        <div class="input-layout">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-          />
-        </div>
+            <div class="input-layout">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
+            </div>
 
-        <button>Sign In</button>
-      </form>
-      <p>
-        Need an Account?
-        <br />
-        <span className="line">
-          {/*put router link here*/}
-          <a href="#">Sign Up</a>
-        </span>
-      </p>
-    </section>
+            <button>Sign Up</button>
+          </form>
+          <p>
+            Need an Account?
+            <br />
+            <span className="line">
+              {/*put router link here*/}
+              <a href="#">Sign Up</a>
+            </span>
+          </p>
+        </section>
+      )}
+    </>
   );
 }
 
