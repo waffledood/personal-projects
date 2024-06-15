@@ -102,7 +102,7 @@ function Login() {
                 required
               />
             </div>
-            <button id="signin">Sign In</button>
+            <button className={styles.signin}>Sign In</button>
           </form>
           <p>
             Need an Account?
