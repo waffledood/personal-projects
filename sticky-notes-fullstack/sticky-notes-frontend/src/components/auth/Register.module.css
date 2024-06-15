@@ -35,3 +35,9 @@
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+.signup:hover:not(:disabled) {
+  cursor: pointer;
+  background-color: #bcbcc1;
+  transition: 0.3s;
+}
