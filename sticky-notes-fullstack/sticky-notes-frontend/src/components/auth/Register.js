@@ -6,6 +6,8 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [validPasswordMatch, setValidPasswordMatch] = useState(false);
 
   const usernameRef = useRef();
   const errRef = useRef();
@@ -20,6 +22,12 @@ function Register() {
   useEffect(() => {
     setErrMsg("");
   }, [username, password]);
+
+  useEffect(() => {
+    setValidPasswordMatch(
+      password === confirmPassword && !!password && !!confirmPassword
+    );
+  }, [password, confirmPassword]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +58,7 @@ function Register() {
           >
             {errMsg}
           </p>
+
           <h1>Sign Up</h1>
           <form onSubmit={handleSubmit} className={styles.register_form}>
             <div className={styles.input_layout}>
@@ -88,8 +97,30 @@ function Register() {
               />
             </div>
 
-            <button>Sign Up</button>
+            <div className={styles.input_layout}>
+              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={confirmPassword}
+                required
+              />
+            </div>
+
+            <button className={styles.signup} disabled={!validPasswordMatch}>
+              Sign Up
+            </button>
           </form>
+
+          <p>
+            Already registered?
+            <br />
+            <span>
+              {/*put router link here*/}
+              <a href="#">Sign In</a>
+            </span>
+          </p>
         </section>
       )}
     </>
