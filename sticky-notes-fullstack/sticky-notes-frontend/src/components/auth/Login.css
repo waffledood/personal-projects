@@ -38,6 +38,7 @@ form {
 
 input[type="text"],
 input[type="password"],
+input[type="email"],
 button {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
