@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+import styles from "./Register.module.css";
+
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -21,20 +23,26 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // clear username, email & password fields
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setSuccess(true);
   };
 
   return (
     <>
       {success ? (
         <section>
-          <h1>You are logged in!</h1>
+          <h1>You have successfully registered!</h1>
           <br />
           <p>
             <a href="#">Go to Home</a>
           </p>
         </section>
       ) : (
-        <section>
+        <section className={styles.section}>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -43,8 +51,8 @@ function Register() {
             {errMsg}
           </p>
           <h1>Sign Up</h1>
-          <form onSubmit={handleSubmit}>
-            <div class="input-layout">
+          <form onSubmit={handleSubmit} className={styles.register_form}>
+            <div className={styles.input_layout}>
               <label htmlFor="username">Username:</label>
               <input
                 type="text"
@@ -57,7 +65,7 @@ function Register() {
               />
             </div>
 
-            <div class="input-layout">
+            <div className={styles.input_layout}>
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
@@ -69,7 +77,7 @@ function Register() {
               />
             </div>
 
-            <div class="input-layout">
+            <div className={styles.input_layout}>
               <label htmlFor="password">Password:</label>
               <input
                 type="password"
@@ -82,14 +90,6 @@ function Register() {
 
             <button>Sign Up</button>
           </form>
-          <p>
-            Need an Account?
-            <br />
-            <span className="line">
-              {/*put router link here*/}
-              <a href="#">Sign Up</a>
-            </span>
-          </p>
         </section>
       )}
     </>
