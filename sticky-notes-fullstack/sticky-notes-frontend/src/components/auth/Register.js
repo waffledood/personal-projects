@@ -2,11 +2,15 @@ import { useEffect, useRef, useState } from "react";
 
 import styles from "./Register.module.css";
 
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [validUsername, setValidUsername] = useState(false);
   const [validPasswordMatch, setValidPasswordMatch] = useState(false);
 
   const usernameRef = useRef();
@@ -18,6 +22,10 @@ function Register() {
   useEffect(() => {
     usernameRef.current.focus();
   }, []);
+
+  useEffect(() => {
+    setValidUsername(USER_REGEX.test(username));
+  }, [username]);
 
   useEffect(() => {
     setErrMsg("");
@@ -108,7 +116,10 @@ function Register() {
               />
             </div>
 
-            <button className={styles.signup} disabled={!validPasswordMatch}>
+            <button
+              className={styles.signup}
+              disabled={!validPasswordMatch || !validUsername}
+            >
               Sign Up
             </button>
           </form>
