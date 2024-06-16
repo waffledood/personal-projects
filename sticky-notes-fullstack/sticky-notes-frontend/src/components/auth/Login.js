@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 import styles from "./Login.module.css";
@@ -9,6 +10,10 @@ const LOGIN_URL = "/dj-rest-auth/login/";
 
 function Login() {
   const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +56,8 @@ function Login() {
       // clear username & password fields
       setUsername("");
       setPassword("");
-      setSuccess(true);
+
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
