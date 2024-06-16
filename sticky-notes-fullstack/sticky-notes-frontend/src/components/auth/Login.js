@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth";
 
 import styles from "./Login.module.css";
 
-import axios from "./axios";
+import axios from "../api/axios";
 
 const LOGIN_URL = "/dj-rest-auth/login/";
 
