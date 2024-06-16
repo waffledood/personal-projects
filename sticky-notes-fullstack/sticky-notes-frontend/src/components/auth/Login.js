@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 import styles from "./Login.module.css";
@@ -22,7 +22,6 @@ function Login() {
   const errRef = useRef();
 
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     usernameRef.current.focus();
@@ -74,15 +73,7 @@ function Login() {
 
   return (
     <>
-      {success ? (
-        <section>
-          <h1>You are logged in!</h1>
-          <br />
-          <p>
-            <a href="#">Go to Home</a>
-          </p>
-        </section>
-      ) : (
+      {
         <section className={styles.section}>
           <p
             ref={errRef}
@@ -127,7 +118,7 @@ function Login() {
             </span>
           </p>
         </section>
-      )}
+      }
     </>
   );
 }
