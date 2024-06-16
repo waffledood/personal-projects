@@ -1,5 +1,5 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import AuthContext from "../context/AuthProvider";
+import { useEffect, useRef, useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 import styles from "./Login.module.css";
 
@@ -8,7 +8,7 @@ import axios from "./axios";
 const LOGIN_URL = "/dj-rest-auth/login/";
 
 function Login() {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
