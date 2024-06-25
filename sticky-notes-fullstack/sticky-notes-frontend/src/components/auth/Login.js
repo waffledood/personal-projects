@@ -48,9 +48,11 @@ function Login() {
       console.log(JSON.stringify(response?.data));
 
       const accessToken = response?.data.access;
+      const refreshToken = response?.data.refresh;
       console.log("accessToken:", accessToken);
+      console.log("refreshToken:", refreshToken);
 
-      setAuth({ username, password, accessToken });
+      setAuth({ username, password, accessToken, refreshToken });
 
       // clear username & password fields
       setUsername("");
