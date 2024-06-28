@@ -13,8 +13,8 @@ function AddStickyNoteIcon({ stickyNotes, setStickyNotes }) {
     const newStickyNote = {
       id: Math.random() * 100 + 1,
       color: colorOfNextStickyNote,
-      x: 20,
-      y: 20,
+      x_pixels_coord: 20,
+      y_pixels_coord: 20,
     };
 
     setStickyNotes([...stickyNotes, newStickyNote]);
