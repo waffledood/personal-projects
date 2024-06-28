@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./AddStickyNoteIcon.css";
 
-function AddStickyNoteIcon({ stickyNotes, addStickyNotes }) {
+function AddStickyNoteIcon({ stickyNotes, setStickyNotes }) {
   const [colorOfNextStickyNote, setColorOfNextStickyNote] = useState("yellow");
 
   const addStickyNoteHandler = () => {
@@ -18,7 +18,7 @@ function AddStickyNoteIcon({ stickyNotes, addStickyNotes }) {
       y: 20,
     };
 
-    addStickyNotes([...stickyNotes, newStickyNote]);
+    setStickyNotes([...stickyNotes, newStickyNote]);
   };
 
   const onMouseDownHandler = () => {
