@@ -8,13 +8,13 @@ class Note(models.Model):
     PINK = "pink"
     BLUE = "blue"
     GREEN = "green"
-    COLOR_CHOICES = {
-        YELLOW: "yellow",
-        ORANGE: "orange",
-        PINK: "pink",
-        BLUE: "blue",
-        GREEN: "green",
-    }
+    COLOR_CHOICES = [
+        (YELLOW, "yellow"),
+        (ORANGE, "orange"),
+        (PINK, "pink"),
+        (BLUE, "blue"),
+        (GREEN, "green"),
+    ]
 
     text = models.CharField(max_length=128)
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
