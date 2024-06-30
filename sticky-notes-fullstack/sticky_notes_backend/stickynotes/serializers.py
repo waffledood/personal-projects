@@ -9,7 +9,7 @@ class NoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Note
-        fields = ("id", "text", "author", "x_pixels_coord", "y_pixels_coord")
+        fields = ("id", "text", "author", "color", "x_pixels_coord", "y_pixels_coord")
 
 
 class UserSerializer(serializers.ModelSerializer):
