@@ -1,24 +1,23 @@
 import { useState } from "react";
 
+import { getRandomColor } from "../utilities/randomColor";
+
 import "./AddStickyNoteIcon.css";
 
-function AddStickyNoteIcon({ stickyNotes, addStickyNotes }) {
+function AddStickyNoteIcon({ stickyNotes, setStickyNotes }) {
   const [colorOfNextStickyNote, setColorOfNextStickyNote] = useState("yellow");
 
   const addStickyNoteHandler = () => {
-    // TODO - Remove hardcoded declaration of StickyNote
-    const colors = ["yellow", "orange", "pink", "blue", "green"];
-
-    setColorOfNextStickyNote(colors[Math.floor(Math.random() * colors.length)]);
+    setColorOfNextStickyNote(getRandomColor());
 
     const newStickyNote = {
       id: Math.random() * 100 + 1,
       color: colorOfNextStickyNote,
-      x: 20,
-      y: 20,
+      x_pixels_coord: 20,
+      y_pixels_coord: 20,
     };
 
-    addStickyNotes([...stickyNotes, newStickyNote]);
+    setStickyNotes([...stickyNotes, newStickyNote]);
   };
 
   const onMouseDownHandler = () => {

@@ -2,7 +2,7 @@ import "./StickyNote.css";
 
 import useDrag from "../hooks/useDrag";
 
-function StickyNote({ id, color, x, y, children }) {
+function StickyNote({ id, color, text, x, y }) {
   const startingPosition = { startingXCoord: x, startingYCoord: y };
 
   const { picturePosition, handleMouseDown, handleMouseMove, handleMouseUp } =
@@ -28,12 +28,11 @@ function StickyNote({ id, color, x, y, children }) {
       <textarea
         name=""
         id={`sticky-note-${id}-text`}
+        value={text}
         className={`${color}`}
         cols=""
         rows=""
-      >
-        {children}
-      </textarea>
+      ></textarea>
     </div>
   );
 }
