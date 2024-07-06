@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "notion",
+    # 3rd party
     "corsheaders",
     "rest_framework",
+    #
+    "notion",
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Rest Framework
+
+REST_FRAMEWORK = {}
