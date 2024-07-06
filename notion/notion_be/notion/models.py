@@ -8,6 +8,9 @@ class Page(models.Model):
     created = models.DateTimeField(auto_now=True)
     saved = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"Page ({self.id}): {self.title} created at {self.created}, last saved at {self.saved}"
+
 
 class Block(models.Model):
     BLOCK_TYPE_CHOICES = [
@@ -23,7 +26,7 @@ class Block(models.Model):
     type = models.CharField(max_length=2, choices=BLOCK_TYPE_CHOICES, default="nn")
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
-    content = models.TextField()
+    content = models.TextField(null=True)
 
     class Meta:
         constraints = [
@@ -31,3 +34,6 @@ class Block(models.Model):
                 fields=["page", "page_order"], name="unique_block_order_per_page"
             )
         ]
+
+    def __str__(self):
+        return f"Block ({self.id}) - Page: ({self.page.id}, {self.page_order}) [Type: {self.type}]: {self.content[:20]}"
