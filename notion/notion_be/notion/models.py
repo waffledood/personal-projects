@@ -22,7 +22,7 @@ class Block(models.Model):
     page_order = models.PositiveIntegerField()
     type = models.CharField(max_length=2, choices=BLOCK_TYPE_CHOICES, default="nn")
 
-    content = models.CharField()
+    content = models.TextField()
 
     class Meta:
         constraints = [
