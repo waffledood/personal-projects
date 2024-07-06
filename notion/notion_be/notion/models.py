@@ -21,6 +21,7 @@ class Block(models.Model):
     page = models.ForeignKey(to=Page, on_delete=models.CASCADE)
     page_order = models.PositiveIntegerField()
     type = models.CharField(max_length=2, choices=BLOCK_TYPE_CHOICES, default="nn")
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     content = models.TextField()
 
