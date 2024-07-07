@@ -30,9 +30,14 @@ class Block(models.Model):
 
     class Meta:
         constraints = [
+            # Blocks that are not Empty cannot have empty content
+            models.CheckConstraint(
+                check=~models.Q(type__exact="nn") & ~models.Q(content__eaxct="")
+            ),
+            # Blocks of a Page must have different page_order values
             models.UniqueConstraint(
                 fields=["page", "page_order"], name="unique_block_order_per_page"
-            )
+            ),
         ]
 
     def __str__(self):
