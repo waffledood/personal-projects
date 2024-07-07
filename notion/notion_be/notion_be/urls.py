@@ -21,4 +21,6 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("notion/", include("notion.urls")),
+    # enables log in for the Browsable APIs
+    path("api-auth/", include("rest_framework.urls")),
 ]
