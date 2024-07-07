@@ -26,7 +26,7 @@ class Block(models.Model):
     type = models.CharField(max_length=2, choices=BLOCK_TYPE_CHOICES, default="nn")
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
-    content = models.TextField(null=True)
+    content = models.TextField(blank=True)
 
     class Meta:
         constraints = [
