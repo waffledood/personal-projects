@@ -32,7 +32,7 @@ class Block(models.Model):
         constraints = [
             # Blocks that are not Empty cannot have empty content
             models.CheckConstraint(
-                check=~models.Q(type__exact="nn") & ~models.Q(content__exact=""),
+                check=models.Q(type__exact="nn") | ~models.Q(content__exact=""),
                 name="non_empty_blocks_must_be_non_empty",
             ),
             # Blocks of a Page must have different page_order values
