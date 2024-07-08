@@ -12,6 +12,11 @@
   transition: 0.3s;
 }
 
+.h1:hover:not(:focus) {
+  border-radius: 4px;
+  background-color: #eeeeee;
+}
+
 .h1:empty:before {
   content: attr(data-placeholder-text);
   color: #999999;
