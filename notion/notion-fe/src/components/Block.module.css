@@ -1,3 +1,9 @@
 .block {
   padding: 3px 2px;
+
+  transition: 0.3s;
+}
+
+.block:hover {
+  background-color: #eeeeee;
 }
