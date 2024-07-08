@@ -8,6 +8,8 @@ function Page() {
   const titleRef = useRef();
   const [title, setTitle] = useState();
 
+  const placeholderValue = "Untitled";
+
   return (
     <div className={styles.pageContainer}>
       <h1
@@ -15,6 +17,7 @@ function Page() {
         ref={titleRef}
         onChange={(e) => setTitle(e.target.value)}
         className={styles.h1}
+        data-placeholder-text={placeholderValue}
       >
         {title}
       </h1>
