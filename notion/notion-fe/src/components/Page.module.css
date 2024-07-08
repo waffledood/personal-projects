@@ -12,6 +12,10 @@
   transition: 0.3s;
 }
 
+.h1:focus {
+  outline: none;
+}
+
 .h1:hover:not(:focus) {
   border-radius: 4px;
   background-color: #eeeeee;
