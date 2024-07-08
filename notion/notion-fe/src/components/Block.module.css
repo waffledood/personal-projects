@@ -4,6 +4,6 @@
   transition: 0.3s;
 }
 
-.block:hover {
+.block:hover:not(:focus) {
   background-color: #eeeeee;
 }
