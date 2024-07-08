@@ -9,6 +9,7 @@
 }
 
 .block:hover:not(:focus) {
+  border-radius: 4px;
   background-color: #eeeeee;
 }
 
