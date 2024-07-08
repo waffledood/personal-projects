@@ -4,6 +4,10 @@
   transition: 0.3s;
 }
 
+.block:focus {
+  outline: none;
+}
+
 .block:hover:not(:focus) {
   background-color: #eeeeee;
 }
