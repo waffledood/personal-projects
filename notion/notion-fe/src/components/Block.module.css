@@ -7,3 +7,8 @@
 .block:hover:not(:focus) {
   background-color: #eeeeee;
 }
+
+.block:empty:focus:before {
+  content: attr(data-placeholder-text);
+  color: #999999;
+}
