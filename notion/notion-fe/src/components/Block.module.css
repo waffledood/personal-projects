@@ -1,19 +1,21 @@
-.block {
-  padding: 3px 2px;
+.block_content {
+  padding: 4.5px 2px;
+
+  position: relative;
 
   transition: 0.3s;
 }
 
-.block:focus {
+.block_content:focus {
   outline: none;
 }
 
-.block:hover:not(:focus) {
+.block_content:hover:not(:focus) {
   border-radius: 4px;
   background-color: #eeeeee;
 }
 
-.block:empty:focus:before {
+.block_content:empty:focus:before {
   content: attr(data-placeholder-text);
   color: #999999;
 }

@@ -9,14 +9,16 @@ function Block() {
   const placeholderValue = "Write something, or press '/' for commands...";
 
   return (
-    <div
-      contentEditable={true}
-      className={styles.block}
-      ref={contentRef}
-      onChange={(e) => setContent(e.target.value)}
-      data-placeholder-text={placeholderValue}
-    >
-      {content}
+    <div>
+      <div
+        contentEditable={true}
+        className={styles.block_content}
+        ref={contentRef}
+        onChange={(e) => setContent(e.target.value)}
+        data-placeholder-text={placeholderValue}
+      >
+        {content}
+      </div>
     </div>
   );
 }
