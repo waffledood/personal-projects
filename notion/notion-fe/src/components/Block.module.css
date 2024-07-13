@@ -28,7 +28,7 @@
 
 .block_content:empty:focus:before {
   content: attr(data-placeholder-text);
-  color: #999999;
+  color: #ddd;
   opacity: 1;
 }
 
@@ -69,4 +69,8 @@
 
   height: 25px;
   width: 25px;
+}
+
+.block_functions_add_color {
+  fill: #ddd;
 }

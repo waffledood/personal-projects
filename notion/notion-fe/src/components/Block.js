@@ -25,7 +25,7 @@ function Block() {
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
-            fill="currentColor"
+            fill={styles.block_functions_add_color}
             class="bi bi-plus"
             viewBox="0 0 16 16"
           >
