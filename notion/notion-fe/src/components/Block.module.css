@@ -1,3 +1,7 @@
+.block {
+  position: relative;
+}
+
 .block_content {
   padding: 4.5px 2px;
 
@@ -18,4 +22,14 @@
 .block_content:empty:focus:before {
   content: attr(data-placeholder-text);
   color: #999999;
+}
+
+.block_functions {
+  position: absolute;
+  left: -30px;
+
+  width: 30px;
+  height: 30px;
+
+  border: 1px red solid;
 }

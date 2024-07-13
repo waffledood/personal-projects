@@ -9,7 +9,8 @@ function Block() {
   const placeholderValue = "Write something, or press '/' for commands...";
 
   return (
-    <div>
+    <div className={styles.block}>
+      <div className={styles.block_functions}>#</div>
       <div
         contentEditable={true}
         className={styles.block_content}
