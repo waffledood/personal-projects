@@ -10,21 +10,30 @@
 
   position: relative;
 
+  opacity: 0;
+
   transition: 0.3s;
 }
 
 .block_content:focus {
   outline: none;
+  opacity: 1;
 }
 
 .block_content:hover:not(:focus) {
   border-radius: 4px;
   background-color: #eeeeee;
+  opacity: 1;
 }
 
 .block_content:empty:focus:before {
   content: attr(data-placeholder-text);
   color: #999999;
+  opacity: 1;
+}
+
+.block_content:not(:empty) {
+  opacity: 1;
 }
 
 .block_functions {
@@ -35,4 +44,16 @@
   height: 30px;
 
   border: 1px red solid;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.block_content:hover ~ .block_functions {
+  opacity: 1;
+}
+
+.block_functions:hover {
+  opacity: 1;
 }
