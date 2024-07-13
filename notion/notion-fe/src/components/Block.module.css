@@ -37,13 +37,16 @@
 }
 
 .block_functions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   left: -30px;
 
-  width: 30px;
   height: 30px;
-
-  border: 1px red solid;
+  width: 30px;
 
   opacity: 0;
 
@@ -56,4 +59,14 @@
 
 .block_functions:hover {
   opacity: 1;
+}
+
+.block_functions_add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 25px;
+  width: 25px;
 }
