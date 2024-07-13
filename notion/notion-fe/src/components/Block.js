@@ -10,7 +10,6 @@ function Block() {
 
   return (
     <div className={styles.block}>
-      <div className={styles.block_functions}>#</div>
       <div
         className={styles.block_content}
         ref={contentRef}
@@ -19,6 +18,9 @@ function Block() {
         data-placeholder-text={placeholderValue}
       >
         {content}
+      </div>
+      <div className={styles.block_functions}>
+        <button>#</button>
       </div>
     </div>
   );
