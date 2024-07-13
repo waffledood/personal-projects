@@ -12,10 +12,10 @@ function Block() {
     <div className={styles.block}>
       <div className={styles.block_functions}>#</div>
       <div
-        contentEditable={true}
         className={styles.block_content}
         ref={contentRef}
         onChange={(e) => setContent(e.target.value)}
+        contentEditable={true}
         data-placeholder-text={placeholderValue}
       >
         {content}
