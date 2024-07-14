@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import Block from "./Block";
 
@@ -7,6 +7,15 @@ import styles from "./Page.module.css";
 function Page() {
   const titleRef = useRef();
   const [title, setTitle] = useState();
+  const [blocks, setBlocks] = useState([
+    { id: 1, content: "First note" },
+    { id: 2, content: "Second note" },
+    { id: 3, content: "Third note" },
+  ]);
+
+  useEffect(() => {
+    console.log("blocks:", blocks);
+  }, [blocks]);
 
   const placeholderValue = "Untitled";
 
