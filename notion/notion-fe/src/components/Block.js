@@ -26,7 +26,6 @@ function Block() {
             width="16"
             height="16"
             fill={styles.block_functions_add_color}
-            class="bi bi-plus-lg"
             viewBox="0 0 16 16"
           >
             <path
