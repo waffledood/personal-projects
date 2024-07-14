@@ -30,7 +30,27 @@ function Page() {
       >
         {title}
       </h1>
-      <Block />
+      {blocks.map(({ id, content }, index) => (
+        <Block
+          key={id}
+          contentVal={content}
+          addNewBlockHandler={() => {
+            console.log(`Adding new Block below ${index}!`);
+            setBlocks((prevBlocks) => {
+              const blocksCopy = [...prevBlocks];
+
+              // insert the new Block below the current Block
+              blocksCopy.splice(index + 1, 0, {
+                // TODO - Update dummy values of new Block inserted
+                id: blocks.length + 1,
+                content: "New block content",
+              });
+
+              return blocksCopy;
+            });
+          }}
+        />
+      ))}
     </div>
   );
 }
