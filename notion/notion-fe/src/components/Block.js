@@ -2,9 +2,9 @@ import React, { useRef, useState } from "react";
 
 import styles from "./Block.module.css";
 
-function Block({ addNewBlockHandler }) {
+function Block({ addNewBlockHandler, contentVal }) {
   const contentRef = useRef();
-  const [content, setContent] = useState();
+  const [content, setContent] = useState(contentVal);
 
   const placeholderValue = "Write something, or press '/' for commands...";
 
