@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 
 import styles from "./Block.module.css";
 
-function Block() {
+function Block({ addNewBlockHandler }) {
   const contentRef = useRef();
   const [content, setContent] = useState();
 
@@ -20,7 +20,10 @@ function Block() {
         {content}
       </div>
       <div className={styles.block_functions}>
-        <button className={styles.block_functions_add}>
+        <button
+          className={styles.block_functions_add}
+          onClick={addNewBlockHandler}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
