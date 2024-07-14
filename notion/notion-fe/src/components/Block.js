@@ -14,6 +14,7 @@ function Block({ addNewBlockHandler, contentVal }) {
         className={styles.block_content}
         ref={contentRef}
         onChange={(e) => setContent(e.target.value)}
+        suppressContentEditableWarning={true}
         contentEditable={true}
         data-placeholder-text={placeholderValue}
       >
