@@ -26,7 +26,7 @@ function Block({ addNewBlockHandler, contentVal }) {
             width="20"
             height="20"
             viewBox="0 0 24 24"
-            fill="none"
+            fill={styles.block_functions_color}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -46,7 +46,7 @@ function Block({ addNewBlockHandler, contentVal }) {
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
-            fill={styles.block_functions_add_color}
+            fill={styles.block_functions_color}
             viewBox="0 0 16 16"
           >
             <path
