@@ -38,15 +38,15 @@
 
 .block_functions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 
   position: absolute;
-  left: -30px;
+  left: -60px;
 
   height: 30px;
-  width: 30px;
+  width: 60px;
 
   opacity: 0;
 
@@ -73,4 +73,14 @@
 
 .block_functions_add_color {
   fill: #ddd;
+}
+
+.block_functions_drag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 25px;
+  width: 25px;
 }
