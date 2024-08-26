@@ -1,6 +1,10 @@
 .DS_Store
 virtualenv/
 
+# Node
+
+node_modules/
+
 # Django
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
