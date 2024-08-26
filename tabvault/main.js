@@ -15,6 +15,12 @@ function createMainWindow() {
 
 app.whenReady().then(() => {
   createMainWindow();
+
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createMainWindow();
+    }
+  });
 });
 
 app.on("window-all-closed", () => {
