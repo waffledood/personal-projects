@@ -1,0 +1,17 @@
+{
+  "name": "tabvault",
+  "productName": "TabVault",
+  "version": "1.0.0",
+  "description": "App to save browser sessions",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haikal Yusuf",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^32.0.1",
+    "puppeteer": "^23.1.1",
+    "toastify-js": "^1.12.0"
+  }
+}
