@@ -35,16 +35,31 @@ app.whenReady().then(() => {
 
 // Menu template
 const menu = [
+  ...(isMac
+    ? [
+        {
+          label: app.name,
+          submenu: [
+            {
+              label: "About",
+              click: () => console.log("About was clicked"),
+            },
+            {
+              label: "Quit TabVault",
+              click: () => app.quit(),
+              accelerator: isMac ? "Cmd+Q" : "Ctrl+W",
+            },
+          ],
+        },
+      ]
+    : []),
   {
     label: "File",
-    submenu: [
-      {
-        label: "Quit",
-        click: () => app.quit(),
-        accelerator: isMac ? "Cmd+Q" : "Ctrl+W",
-      },
-    ],
+    submenu: [],
   },
+  // {
+  //   role: "fileMenu",
+  // },
 ];
 
 app.on("window-all-closed", () => {
