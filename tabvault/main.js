@@ -26,6 +26,7 @@ function createMainWindow() {
 app.whenReady().then(() => {
   createMainWindow();
 
+  // Mac-specific behavior -- launch a new window when there are no windows
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createMainWindow();
