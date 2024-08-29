@@ -41,7 +41,7 @@ const menu = [
       {
         label: "Quit",
         click: () => app.quit(),
-        accelerator: "CmdOrCtrl+W",
+        accelerator: isMac ? "Cmd+Q" : "Ctrl+W",
       },
     ],
   },
