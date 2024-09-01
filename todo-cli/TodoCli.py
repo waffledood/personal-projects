@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 import sys
@@ -15,7 +16,8 @@ def initialization():
     else:
         print(f"{TASKS_JSON_FILE_NAME} does not exist, creating")
         with open(TASKS_JSON_FILE_PATH, "w") as f:
-            f.write("")
+            emptyJson = {}
+            json.dump(emptyJson, f)
 
 
 def main():
