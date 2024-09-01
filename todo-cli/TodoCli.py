@@ -20,8 +20,17 @@ def initialization():
             json.dump(emptyJson, f)
 
 
+def loadTasksFromJson():
+    with open(TASKS_JSON_FILE_PATH) as f:
+        tasks = json.load(f)
+
+    return tasks
+
+
 def main():
     initialization()
+
+    tasks = loadTasksFromJson()
 
     if len(sys.argv) > 1:
         command = sys.argv[1]
