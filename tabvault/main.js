@@ -23,6 +23,16 @@ function createMainWindow() {
   mainWindow.loadFile(path.join(__dirname, "./renderer/index.html"));
 }
 
+function createAboutWindow() {
+  const aboutWindow = new BrowserWindow({
+    title: "About",
+    width: 300,
+    height: 300,
+  });
+
+  aboutWindow.loadFile(path.join(__dirname, "./renderer/about.html"));
+}
+
 app.whenReady().then(() => {
   createMainWindow();
 
@@ -43,7 +53,7 @@ const menu = [
           submenu: [
             {
               label: "About",
-              click: () => console.log("About was clicked"),
+              click: () => createAboutWindow(),
             },
             {
               label: "Quit TabVault",
