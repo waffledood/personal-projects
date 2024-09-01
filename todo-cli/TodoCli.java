@@ -72,4 +72,9 @@ public class TodoCli {
             }
         }
     }
+
+    // read & write to JSON files using the Jackson library
+    // https://www.baeldung.com/jackson-object-mapper-tutorial
+    // https://jenkov.com/tutorials/java-json/jackson-objectmapper.html
+    // https://www.marcobehler.com/guides/java-files
 }
