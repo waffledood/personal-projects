@@ -8,6 +8,8 @@ public class TodoCli {
     private static final String todoCliDirectory = "C:/TodoCli/";
     private static final String todoCliTasksJsonPath = todoCliDirectory + nameOfTodoCliTasksJsonFile;
 
+    private static final String validCommandWarning = "Please enter a valid command: add, update, delete, mark-in-progress, mark-done, list";
+
     public static void main(String[] args) {
 
         taskJsonInit();
@@ -37,9 +39,11 @@ public class TodoCli {
                     break;
 
                 default:
-                    System.out.println("Please enter one of the following commands: add, update, delete, mark-in-progress, mark-done, list");
+                    System.out.println(validCommandWarning);
                     break;
             }
+        } else {
+            System.out.println(validCommandWarning);
         }
     }
 
