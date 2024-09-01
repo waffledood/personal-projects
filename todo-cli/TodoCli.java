@@ -77,4 +77,7 @@ public class TodoCli {
     // https://www.baeldung.com/jackson-object-mapper-tutorial
     // https://jenkov.com/tutorials/java-json/jackson-objectmapper.html
     // https://www.marcobehler.com/guides/java-files
+
+    // compile & run this class with the following command in PowerShell:
+    // clear; javac TodoCli.java; java TodoCli abc
 }
