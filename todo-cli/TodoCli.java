@@ -9,12 +9,13 @@ public class TodoCli {
     private static final String todoCliTasksJsonPath = todoCliDirectory + nameOfTodoCliTasksJsonFile;
 
     public static void main(String[] args) {
+
+        taskJsonInit();
+
         if (args.length >= 1) {
             String command = args[0];
 
             System.out.println("Command: " + command);
-
-            taskJson();
 
             switch (command) {
                 case "add":
@@ -42,7 +43,7 @@ public class TodoCli {
         }
     }
 
-    public static void taskJson() {
+    public static void taskJsonInit() {
         // Create the directory, if it doesn't exist
         Path todoCliDirectoryPath = Path.of(todoCliDirectory);
         boolean todoCliDirectoryExists = Files.exists(todoCliDirectoryPath);
