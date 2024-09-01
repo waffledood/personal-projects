@@ -16,7 +16,7 @@ def initialization():
     else:
         print(f"{TASKS_JSON_FILE_NAME} does not exist, creating")
         with open(TASKS_JSON_FILE_PATH, "w") as f:
-            emptyJson = {}
+            emptyJson = []
             json.dump(emptyJson, f)
 
 
