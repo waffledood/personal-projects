@@ -83,6 +83,8 @@ def loadTasksFromJson():
     with open(TASKS_JSON_FILE_PATH) as f:
         tasks = json.load(f)
 
+    tasks = [Task.from_dict(task) for task in tasks]
+
     return tasks
 
 
