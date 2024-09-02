@@ -89,6 +89,12 @@ def loadTasksFromJson():
     print("TASKS_DICT:", TASKS_DICT)
 
 
+def saveTasksToJson():
+    taskJsonFromDict = [taskJson for taskJson in TASKS_DICT.values()]
+    with open(TASKS_JSON_FILE_PATH, "w") as f:
+        json.dump(taskJsonFromDict, f)
+
+
 def main():
     initialization()
 
