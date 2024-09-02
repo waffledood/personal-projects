@@ -84,7 +84,7 @@ def loadTasksFromJson():
     with open(TASKS_JSON_FILE_PATH) as f:
         tasks = json.load(f)
 
-    tasksDict = {task.id: task for task in tasks}
+    TASKS_DICT = {task.id: task for task in tasks}
 
     return tasksDict
 
