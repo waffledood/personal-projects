@@ -9,6 +9,7 @@ INVALID_COMMAND = "Please enter a valid command: add, update, delete, mark-in-pr
 CURRENT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 TASKS_JSON_FILE_NAME = "TodoCliTasks.json"
 TASKS_JSON_FILE_PATH = os.path.join(CURRENT_DIRECTORY, TASKS_JSON_FILE_NAME)
+TASKS_DICT = {}
 
 
 class Task:
