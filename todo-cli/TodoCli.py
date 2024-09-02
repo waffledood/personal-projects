@@ -69,6 +69,10 @@ class Task:
             updatedAt=updatedAt,
         )
 
+    @classmethod
+    def create(cls, description):
+        return cls(description=description).to_dict()
+
 
 def initialization():
     if os.path.exists(TASKS_JSON_FILE_PATH):
