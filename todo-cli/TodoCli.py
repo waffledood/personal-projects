@@ -87,6 +87,7 @@ def initialization():
 def loadTasksFromJson():
     with open(TASKS_JSON_FILE_PATH) as f:
         tasks = json.load(f)
+    tasks = [Task.from_dict(task) for task in tasks]
     TASKS_DICT = {task["id"]: task for task in tasks}
 
     print("TASKS_DICT:", TASKS_DICT)
