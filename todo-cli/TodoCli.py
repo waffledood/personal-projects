@@ -97,7 +97,7 @@ def saveTasksToJson():
     taskJsonFromDict = [taskJson for taskJson in TASKS_DICT.values()]
 
     with open(TASKS_JSON_FILE_PATH, "w") as f:
-        json.dump(taskJsonFromDict, f)
+        json.dump(taskJsonFromDict, f, indent=2)
 
 
 def addNewTask(description):
