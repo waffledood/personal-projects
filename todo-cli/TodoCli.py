@@ -110,6 +110,16 @@ def addNewTask(description):
     saveTasksToJson()
 
 
+def updateExistingTask(id, description):
+    try:
+        taskToUpdate = TASKS_DICT[int(id)]
+        taskToUpdate["description"] = description
+    except KeyError:
+        print(f"Task with id {id} doesn't exist")
+
+    saveTasksToJson()
+
+
 def main():
     initialization()
     loadTasksFromJson()
@@ -125,6 +135,12 @@ def main():
                 return
 
             case "update":
+                existingTaskId = sys.argv[2]
+                existingTaskUpdatedDescription = sys.argv[3]
+                updateExistingTask(
+                    id=existingTaskId, description=existingTaskUpdatedDescription
+                )
+
                 return
 
             case "delete":
