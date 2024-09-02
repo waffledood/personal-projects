@@ -108,8 +108,7 @@ def addNewTask(newTask):
 
 def main():
     initialization()
-
-    tasks = loadTasksFromJson()
+    loadTasksFromJson()
 
     if len(sys.argv) > 1:
         command = sys.argv[1]
