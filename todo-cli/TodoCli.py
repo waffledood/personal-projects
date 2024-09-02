@@ -68,14 +68,6 @@ class Task:
             updatedAt=updatedAt,
         )
 
-    @classmethod
-    def to_dict(cls, data):
-        """
-        Returns a JSON format of the Task object
-        """
-        # Create a Task instance using data from the dictionary
-        return cls.from_dict(data).to_dict()
-
 
 def initialization():
     if os.path.exists(TASKS_JSON_FILE_PATH):
