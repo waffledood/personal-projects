@@ -67,7 +67,7 @@ class Task:
             status=data["status"],
             createdAt=createdAt,
             updatedAt=updatedAt,
-        )
+        ).to_dict()
 
     @classmethod
     def create(cls, description):
