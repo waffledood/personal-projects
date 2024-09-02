@@ -106,6 +106,10 @@ def main():
 
         match command:
             case "add":
+                newTaskDescription = sys.argv[2]
+                newTask = Task(description=newTaskDescription)
+                tasks[newTask.id] = newTask
+
                 return
 
             case "update":
