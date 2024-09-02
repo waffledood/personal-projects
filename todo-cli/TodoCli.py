@@ -22,7 +22,7 @@ class Task:
         self.id = id if id is not None else Task.numberOfTasksCount
         self.description = description
         self.status = "todo"  # Default status is 'todo'
-        self.createdAt = datetime.now()  # Set the creation time to now
+        self.createdAt = datetime.now().isoformat()  # Set the creation time to now
         self.updatedAt = self.createdAt
 
         if id is None:
@@ -32,13 +32,13 @@ class Task:
 
     def update_description(self, new_description):
         self.status = new_description
-        self.updatedAt = datetime.now()  # Update the updatedAt time
+        self.updatedAt = datetime.now().isoformat()  # Update the updatedAt time
 
     def update_status(self, new_status):
         allowed_statuses = ["todo", "in-progress", "done"]
         if new_status in allowed_statuses:
             self.status = new_status
-            self.updatedAt = datetime.now()  # Update the updatedAt time
+            self.updatedAt = datetime.now().isoformat()  # Update the updatedAt time
         else:
             raise ValueError(f"Invalid status: {new_status}")
 
