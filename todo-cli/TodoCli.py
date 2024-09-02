@@ -86,7 +86,7 @@ def loadTasksFromJson():
 
     TASKS_DICT = {task.id: task for task in tasks}
 
-    return tasksDict
+    print("TASKS_DICT:", TASKS_DICT)
 
 
 def main():
