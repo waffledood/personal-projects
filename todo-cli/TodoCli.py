@@ -117,8 +117,8 @@ def main():
         match command:
             case "add":
                 newTaskDescription = sys.argv[2]
-                newTask = Task(description=newTaskDescription)
-                tasks[newTask.id] = newTask
+                newTask = Task.create(description=newTaskDescription)
+                addNewTask(newTask=newTask)
 
                 return
 
