@@ -102,10 +102,10 @@ def saveTasksToJson():
 
 def addNewTask(description):
     newTask = Task.create(description=description)
-    id = newTask["id"]
+    newTaskId = newTask["id"]
 
     # Add new Task to dictionary
-    TASKS_DICT[id] = newTask
+    TASKS_DICT[newTaskId] = newTask
 
     saveTasksToJson()
 
