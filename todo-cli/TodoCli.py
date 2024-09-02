@@ -95,14 +95,17 @@ def loadTasksFromJson():
 
 def saveTasksToJson():
     taskJsonFromDict = [taskJson for taskJson in TASKS_DICT.values()]
+
     with open(TASKS_JSON_FILE_PATH, "w") as f:
         json.dump(taskJsonFromDict, f)
 
 
-def addNewTask(newTask):
-    TASKS_DICT[newTask.id] = newTask
+def addNewTask(description):
+    newTask = Task.create(description=description)
+    id = newTask["id"]
 
-    print("TASKS_DICT:", TASKS_DICT)
+    # Add new Task to dictionary
+    TASKS_DICT[id] = newTask
 
     saveTasksToJson()
 
@@ -117,8 +120,7 @@ def main():
         match command:
             case "add":
                 newTaskDescription = sys.argv[2]
-                newTask = Task.create(description=newTaskDescription)
-                addNewTask(newTask=newTask)
+                addNewTask(description=newTaskDescription)
 
                 return
 
