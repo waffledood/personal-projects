@@ -99,6 +99,14 @@ def saveTasksToJson():
         json.dump(taskJsonFromDict, f)
 
 
+def addNewTask(newTask):
+    TASKS_DICT[newTask.id] = newTask
+
+    print("TASKS_DICT:", TASKS_DICT)
+
+    saveTasksToJson()
+
+
 def main():
     initialization()
 
