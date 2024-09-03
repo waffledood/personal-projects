@@ -78,6 +78,10 @@ class Task:
         if id > cls.numberOfTasksCount:
             cls.numberOfTasksCount = id + 1
 
+    @classmethod
+    def str(cls, data):
+        return f"Task [{data["id"]}] - \"{data["description"]}\""
+
 
 def initialization():
     if os.path.exists(TASKS_JSON_FILE_PATH):
@@ -160,6 +164,11 @@ def markInDone(id):
         print("Specified id does not exist")
 
 
+def list():
+    for task in TASKS_DICT.values():
+        print(Task.str(task))
+
+
 def main():
     initialization()
     loadTasksFromJson()
@@ -199,6 +208,7 @@ def main():
                 return
 
             case "list":
+                list()
                 return
 
             case _:
