@@ -164,8 +164,19 @@ def markInDone(id):
         print("Specified id does not exist")
 
 
-def list():
-    for task in TASKS_DICT.values():
+def listBy(status=None):
+    tasks = TASKS_DICT.values()
+
+    if status != None:
+        match status:
+            case "done":
+                tasks = [task for task in tasks if task["status"] == "done"]
+            case "todo":
+                tasks = [task for task in tasks if task["status"] == "todo"]
+            case "in-progress":
+                tasks = [task for task in tasks if task["status"] == "in-progress"]
+
+    for task in tasks:
         print(Task.str(task))
 
 
@@ -189,7 +200,6 @@ def main():
                 updateExistingTask(
                     id=existingTaskId, description=existingTaskUpdatedDescription
                 )
-
                 return
 
             case "delete":
@@ -208,7 +218,11 @@ def main():
                 return
 
             case "list":
-                list()
+                if len(sys.argv) == 3:
+                    status = sys.argv[2]
+                    listBy(status=status)
+                elif len(sys.argv) == 2:
+                    listBy(status=None)
                 return
 
             case _:
