@@ -120,6 +120,15 @@ def updateExistingTask(id, description):
     saveTasksToJson()
 
 
+def deleteExistingTask(id):
+    try:
+        del TASKS_DICT[int(id)]
+        saveTasksToJson()
+    except KeyError:
+        print("Specified id does not exist")
+    pass
+
+
 def main():
     initialization()
     loadTasksFromJson()
@@ -144,6 +153,8 @@ def main():
                 return
 
             case "delete":
+                existingTaskId = sys.argv[2]
+                deleteExistingTask(id=existingTaskId)
                 return
 
             case "mark-in-progress":
