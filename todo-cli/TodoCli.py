@@ -73,6 +73,11 @@ class Task:
     def create(cls, description):
         return cls(description=description).to_dict()
 
+    @classmethod
+    def incrementNumberOfTasksCount(cls, id):
+        if id > cls.numberOfTasksCount:
+            cls.numberOfTasksCount = id + 1
+
 
 def initialization():
     if os.path.exists(TASKS_JSON_FILE_PATH):
@@ -87,7 +92,9 @@ def initialization():
 def loadTasksFromJson():
     with open(TASKS_JSON_FILE_PATH) as f:
         tasks = json.load(f)
-    tasks = [Task.from_dict(task) for task in tasks]
+
+    for task in tasks:
+        Task.incrementNumberOfTasksCount(task["id"])
 
     global TASKS_DICT
     TASKS_DICT = {task["id"]: task for task in tasks}
