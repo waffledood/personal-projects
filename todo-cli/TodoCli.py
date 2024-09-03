@@ -117,10 +117,15 @@ def addNewTask(description):
     saveTasksToJson()
 
 
+def updateTimestamp(task):
+    task["updatedAt"] = datetime.now().isoformat()
+
+
 def updateExistingTask(id, description):
     try:
         taskToUpdate = TASKS_DICT[int(id)]
         taskToUpdate["description"] = description
+        updateTimestamp(task=taskToUpdate)
     except KeyError:
         print(f"Task with id {id} doesn't exist")
 
@@ -139,6 +144,7 @@ def markInProgress(id):
     try:
         taskToUpdate = TASKS_DICT[int(id)]
         taskToUpdate["status"] = "in-progress"
+        updateTimestamp(task=taskToUpdate)
         saveTasksToJson()
     except KeyError:
         print("Specified id does not exist")
@@ -148,6 +154,7 @@ def markInDone(id):
     try:
         taskToUpdate = TASKS_DICT[int(id)]
         taskToUpdate["status"] = "done"
+        updateTimestamp(task=taskToUpdate)
         saveTasksToJson()
     except KeyError:
         print("Specified id does not exist")
