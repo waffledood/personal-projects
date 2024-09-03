@@ -126,7 +126,6 @@ def deleteExistingTask(id):
         saveTasksToJson()
     except KeyError:
         print("Specified id does not exist")
-    pass
 
 
 def main():
