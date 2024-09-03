@@ -128,6 +128,15 @@ def deleteExistingTask(id):
         print("Specified id does not exist")
 
 
+def markInProgress(id):
+    try:
+        taskToUpdate = TASKS_DICT[int(id)]
+        taskToUpdate["status"] = "in-progress"
+        saveTasksToJson()
+    except KeyError:
+        print("Specified id does not exist")
+
+
 def main():
     initialization()
     loadTasksFromJson()
@@ -157,6 +166,8 @@ def main():
                 return
 
             case "mark-in-progress":
+                existingTaskId = sys.argv[2]
+                markInProgress(id=existingTaskId)
                 return
 
             case "mark-done":
