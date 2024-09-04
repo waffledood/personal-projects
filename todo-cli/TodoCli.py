@@ -80,7 +80,7 @@ class Task:
 
     @classmethod
     def str(cls, data):
-        return f"Task [{data["id"]}] - \"{data["description"]}\""
+        return f"Task [{data["id"]}](Status: {data["status"]}) - \"{data["description"]}\""
 
 
 def initialization():
