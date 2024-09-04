@@ -30,18 +30,6 @@ class Task:
         else:
             Task.numberOfTasksCount = id + 1
 
-    def update_description(self, new_description):
-        self.status = new_description
-        self.updatedAt = datetime.now().isoformat()  # Update the updatedAt time
-
-    def update_status(self, new_status):
-        allowed_statuses = ["todo", "in-progress", "done"]
-        if new_status in allowed_statuses:
-            self.status = new_status
-            self.updatedAt = datetime.now().isoformat()  # Update the updatedAt time
-        else:
-            raise ValueError(f"Invalid status: {new_status}")
-
     def to_dict(self):
         return {
             "id": self.id,
@@ -50,24 +38,6 @@ class Task:
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt,
         }
-
-    def __repr__(self):
-        return f"Task(id={self.id}, description={self.description})"
-
-    @classmethod
-    def from_dict(cls, data):
-        # Convert date strings back to datetime objects if needed
-        createdAt = data.get("createdAt")
-        updatedAt = data.get("updatedAt")
-
-        # Create a Task instance using data from the dictionary
-        return cls(
-            id=data["id"],
-            description=data["description"],
-            status=data["status"],
-            createdAt=createdAt,
-            updatedAt=updatedAt,
-        ).to_dict()
 
     @classmethod
     def create(cls, description):
