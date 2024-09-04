@@ -97,10 +97,9 @@ def updateExistingTask(id, description):
         taskToUpdate = TASKS_DICT[int(id)]
         taskToUpdate["description"] = description
         updateTimestamp(task=taskToUpdate)
+        saveTasksToJson()
     except KeyError:
         print(f"Task with id {id} doesn't exist")
-
-    saveTasksToJson()
 
 
 def deleteExistingTask(id):
