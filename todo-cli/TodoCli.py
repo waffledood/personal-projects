@@ -53,6 +53,10 @@ class Task:
         return f"Task [{data["id"]}](Status: {data["status"]}) - \"{data["description"]}\""
 
 
+def errorPrintForInvalidId(id):
+    print(f"Task with id {id} doesn't exist")
+
+
 def initialization():
     if not os.path.exists(TASKS_JSON_FILE_PATH):
         with open(TASKS_JSON_FILE_PATH, "w") as f:
@@ -99,7 +103,7 @@ def updateExistingTask(id, description):
         updateTimestamp(task=taskToUpdate)
         saveTasksToJson()
     except KeyError:
-        print(f"Task with id {id} doesn't exist")
+        errorPrintForInvalidId(id)
 
 
 def deleteExistingTask(id):
@@ -107,7 +111,7 @@ def deleteExistingTask(id):
         del TASKS_DICT[int(id)]
         saveTasksToJson()
     except KeyError:
-        print("Specified id does not exist")
+        errorPrintForInvalidId(id)
 
 
 def markInProgress(id):
@@ -117,7 +121,7 @@ def markInProgress(id):
         updateTimestamp(task=taskToUpdate)
         saveTasksToJson()
     except KeyError:
-        print("Specified id does not exist")
+        errorPrintForInvalidId(id)
 
 
 def markInDone(id):
@@ -127,7 +131,7 @@ def markInDone(id):
         updateTimestamp(task=taskToUpdate)
         saveTasksToJson()
     except KeyError:
-        print("Specified id does not exist")
+        errorPrintForInvalidId(id)
 
 
 def listBy(status=None):
