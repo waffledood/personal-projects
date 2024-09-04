@@ -19,7 +19,7 @@ class Task:
         self, description, id=None, status="todo", createdAt=None, updatedAt=None
     ):
 
-        self.id = id if id is not None else Task.numberOfTasksCount
+        self.id = Task.numberOfTasksCount if id is None else id
         self.description = description
         self.status = "todo"  # Default status is 'todo'
         self.createdAt = datetime.now().isoformat()  # Set the creation time to now
