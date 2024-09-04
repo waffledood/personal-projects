@@ -84,10 +84,7 @@ class Task:
 
 
 def initialization():
-    if os.path.exists(TASKS_JSON_FILE_PATH):
-        print(f"{TASKS_JSON_FILE_NAME} exists")
-    else:
-        print(f"{TASKS_JSON_FILE_NAME} does not exist, creating")
+    if not os.path.exists(TASKS_JSON_FILE_PATH):
         with open(TASKS_JSON_FILE_PATH, "w") as f:
             emptyJson = []
             json.dump(emptyJson, f)
