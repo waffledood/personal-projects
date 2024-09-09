@@ -32,3 +32,13 @@ superuser credentials
 Username: `haikal`
 Email: `haikal@gmail.com`
 Password: `password`
+
+## Creating a new `SECRET_KEY`
+
+Execute the following command in the terminal:
+
+```
+python -c 'import secrets; print(secrets.token_urlsafe())'
+```
+
+The new `SECRET_KEY` will be printed to the terminal.
