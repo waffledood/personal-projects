@@ -2,5 +2,5 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def index(request):
+def weather(request, location):
     return HttpResponse("Hello world!")
