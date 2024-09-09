@@ -12,4 +12,6 @@ env.read_env()
 
 
 def weather(request, location):
+    apiKey = env.str("VISUAL_CROSSING_API_KEY")
+
     return HttpResponse("Hello world!")
