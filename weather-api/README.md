@@ -24,3 +24,11 @@ To setup the project, please follow below steps:
    `python manage.py runserver`
 
 2. Start accessing the `weather-api` API endpoints via `http://127.0.0.1:8000/weather/`
+
+## Credentials
+
+superuser credentials
+
+Username: `haikal`
+Email: `haikal@gmail.com`
+Password: `password`
