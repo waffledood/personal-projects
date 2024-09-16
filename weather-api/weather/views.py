@@ -1,4 +1,5 @@
 import json
+import redis
 import requests
 
 from django.http import JsonResponse, HttpResponse
@@ -11,7 +12,11 @@ env = Env()
 env.read_env()
 
 
+r = redis.Redis(host="localhost", port=6379, decode_responses=True)
+
+
 def weather(request, location):
+
     apiKey = env.str("VISUAL_CROSSING_API_KEY")
     response = requests.request(
         "GET",
