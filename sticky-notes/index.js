@@ -67,14 +67,30 @@ function addStickyNoteIconClickHandler(event) {
       pos3 = 0,
       pos4 = 0;
 
+    var currentX = 0,
+      currentY = 0;
+
     document.getElementById(element.id + "-header").onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
       e = e || window.event;
       e.preventDefault();
+
       // get the mouse cursor position at startup:
       pos3 = e.clientX;
       pos4 = e.clientY;
+
+      // Get the current transform values from the element's style.
+      // This is important to ensure the element doesn't jump to (0,0)
+      // when a new drag starts.
+      var transformMatrix = window.getComputedStyle(element).transform;
+      var matrixValues = transformMatrix.match(/matrix.*\((.+)\)/);
+      if (matrixValues && matrixValues[1]) {
+        matrixValues = matrixValues[1].split(", ").map(Number);
+        currentX = matrixValues[4];
+        currentY = matrixValues[5];
+      }
+
       document.onmouseup = closeDragElement;
       // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
@@ -83,14 +99,21 @@ function addStickyNoteIconClickHandler(event) {
     function elementDrag(e) {
       e = e || window.event;
       e.preventDefault();
+
       // calculate the new cursor position:
       pos1 = pos3 - e.clientX;
       pos2 = pos4 - e.clientY;
+
+      // Update the new current mouse positions:
       pos3 = e.clientX;
       pos4 = e.clientY;
-      // set the element's new position:
-      element.style.top = element.offsetTop - pos2 + "px";
-      element.style.left = element.offsetLeft - pos1 + "px";
+
+      // Update the current transformation values by adding the delta:
+      currentX = currentX - pos1;
+      currentY = currentY - pos2;
+
+      // Set the element's new position using CSS transform:
+      element.style.transform = `translate(${currentX}px, ${currentY}px)`;
     }
 
     function closeDragElement() {
